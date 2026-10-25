@@ -30,8 +30,9 @@ kind is externalised for a different reason, changes in a different way, and
 needs the person's attention again for a different reason. particulars holds
 semantic memory: what is believed about things in the world. intentions holds
 prospective memory: what a person means to do, and why. Episodic and
-procedural memory are not yet specified, and the paper ends with what each
-would need.
+procedural memory are not yet specified. The paper ends with what episodic
+memory would need, and argues that for people procedural memory needs less a
+format than a way back to the reasons behind their habits.
 
 ---
 
@@ -145,8 +146,12 @@ about knowing when that moment has come.
 >   when the belief is next used? The second is closer to the text and
 >   cheaper in attention. It also risks acting on an unreconciled belief.
 > - **Rows the table leaves out.** Procedures that stop working are plainly
->   conspicuous. Desires never break down, because nothing is checked against
->   them. That fits: a desire is not yet equipment, only a want waiting to be
+>   conspicuous, but those are a harness's procedures. A person's habits have
+>   a mode of their own: a habit outlives its reason, and nothing obtrudes in
+>   use, because the habit no longer consults its goal. It shows only on
+>   reflection (section 8). Decide whether that is a fourth row or the reason
+>   the table is limited to what is in use. Desires never break down, because
+>   nothing is checked against them. That fits: a desire is not yet equipment, only a want waiting to be
 >   taken up. Episodes don't break down either, and they are where reflection
 >   happens instead. Say whether the table covers only what is in use.
 > - **Prior art.** Winograd and Flores (*Understanding Computers and
@@ -216,7 +221,7 @@ The point for design is that each kind changes differently:
 | Semantic | what they believe, and why | reconciliation | contradicted |
 | Prospective | what they want and have committed to | resolution or retirement | due, blocked, or undermined by a changed belief |
 | Episodic | what actually happened | accumulation only | reflecting: did I act as I meant to? |
-| Procedural | how to do things | supersession and re-verification | it stops working |
+| Procedural | why they do what they do by habit, and how to do the rare things | practice and replacement | a habit outlives its reason, or a rare procedure is due again |
 
 You don't reconcile a past event, only beliefs about it. You don't contradict
 a plan, you retire it. A store that treats all four the same will get at
@@ -453,13 +458,50 @@ row of the table in section 2, has nothing to work on.
 
 ### Procedural memory
 
-Procedural memory exists in the ecosystem but outside any format: in skills
-(`SKILL.md`), in prompts, and in a DKF workspace's `dkf.md` conventions
-document, which addresses an agent without constraining anything.
+Procedural memory doesn't fit the argument of section 1 the way the others
+do, because it is already ready-to-hand. A practised skill withdraws on its
+own: that is Heidegger's absorbed coping, and the end point of Dreyfus and
+Dreyfus's account of skill, in which a novice following explicit rules
+becomes an expert who no longer consults them (Dreyfus and Dreyfus 1986).
+Nobody needs a store in order to forget how to ride a bicycle. For a person,
+the family's relationship to procedural memory runs the other way. It is
+about what gets internalised, not what gets externalised, and it has three
+parts.
 
-Procedures change by supersession and need re-verification, and their
-breakdown is the plainest of all: they stop working. Whether they need a
-format, or whether skills already are one, is open.
+**Habit is where an intention ends up.** A recurring intention practised for
+long enough stops needing the plan. Habit research describes the shift:
+behaviour that began as goal-directed comes to be cued by its context, and
+runs without the goal being called to mind (Wood and Neal 2007; Lally et al.
+2010). Aristotle put the same thing in terms closer to this paper's: we
+become just by doing just acts (*Nicomachean Ethics*, II.1). A terminus
+such as *being someone who follows through* is finally made real in habit,
+not in a file. The formats support the way there, and then let the plan be
+retired.
+
+**A habit's breakdown is that it outlives its reason.** Because a habit no
+longer consults its goal, it carries on when the goal has changed, and
+because it is invisible from the inside, the person is the last to notice.
+This is a breakdown of a kind section 1's table doesn't list. Nothing obtrudes
+in use; it shows only when someone reflects. Keeping the why outside, in the
+intention the habit came from and the terminus that intention served, is what
+lets a habit be examined later. It is Frankfurt's question again, asked of
+habits rather than desires: is this something I endorse doing?
+
+**Rare procedures never become habit.** Renewing a certificate once a year,
+or filing a tax return, happens too seldom to be practised. These are where
+externalised know-how genuinely serves a person, and that know-how is mostly
+episodic: *how did I do this last time?* So the human case for procedural
+memory is largely a case for the episodic gap above, plus intentions'
+retained reasons for habits, rather than a case for a procedural format.
+
+**Agent skills are delegation, not the person's procedural memory.** Skills
+(`SKILL.md`), prompts, and a DKF workspace's `dkf.md` conventions document
+are how a harness knows how to do things. They are the harness's procedural
+memory. When an agent does something on a person's behalf, the person
+holds the procedure in no form at all. That is a real benefit, and it has a
+known cost: people lose the skill they delegated, and with it the ability to
+step in when the automation fails (Bainbridge 1983). Whether the harness's
+own procedures belong in the family is a separate question (section 10).
 
 ---
 
@@ -514,6 +556,12 @@ than noise.
   alike. The motivation is about the person; the benchmarks are about the
   agent. One reading is that the agent is the harness that keeps a person's
   externalised self.
+- **Does the harness's procedural memory belong in the family?** Skills and
+  conventions documents are how an agent knows how to do things for a
+  person. They might deserve a format of their own, or they might be an
+  implementation concern, like an index. If they belong, the paper needs to
+  say what they do for the person, and how delegating a procedure avoids
+  costing the person the skill.
 - **Settled plans or radical freedom?** Sartre holds that no past choice
   binds: a person chooses again in every moment, and the anguish of that is
   the price of freedom. intentions sides with Bratman, holding that settled
@@ -525,15 +573,17 @@ than noise.
 ## References
 
 **Philosophy.**
+Aristotle, *Nicomachean Ethics*, Book II.
 Fyodor Dostoevsky, *Notes from Underground* (1864), Part I §5.
 Friedrich Nietzsche, "On the Uses and Disadvantages of History for Life"
 (1874); *On the Genealogy of Morals* (1887), II §1; *Ecce Homo* (1888).
-Martin Heidegger, *Being and Time* (1927), §§15–16.
+Martin Heidegger, *Being and Time* (1927), §§15–18.
 Jean-Paul Sartre, *Being and Nothingness* (1943).
 Albert Camus, *The Rebel* (1951), tr. Anthony Bower, "Thought at the
 Meridian".
 Harry Frankfurt, "Freedom of the will and the concept of a person",
 *Journal of Philosophy* (1971).
+Hubert Dreyfus and Stuart Dreyfus, *Mind over Machine* (1986).
 Michael Bratman, *Intention, Plans, and Practical Reason* (1987).
 Andy Clark and David Chalmers, "The extended mind", *Analysis* (1998).
 
@@ -553,14 +603,20 @@ Marcia Johnson, Shahin Hashtroudi and D. Stephen Lindsay, "Source
 monitoring", *Psychological Bulletin* (1993).
 Peter Gollwitzer, "Implementation intentions: strong effects of simple
 plans", *American Psychologist* (1999).
+Wendy Wood and David Neal, "A new look at habits and the habit–goal
+interface", *Psychological Review* (2007).
 Kentaro Fujita, Yaacov Trope, Nira Liberman and Maya Levin-Sagi, "Construal
 levels and self-control", *JPSP* (2006).
+Phillippa Lally, Cornelia van Jaarsveld, Henry Potts and Jane Wardle, "How
+are habits formed: modelling habit formation in the real world", *European
+Journal of Social Psychology* (2010).
 E. J. Masicampo and Roy Baumeister, "Consider it done! Plan making can
 eliminate the cognitive effects of unfulfilled goals", *JPSP* (2011).
 Evan Risko and Sam Gilbert, "Cognitive offloading", *Trends in Cognitive
 Sciences* (2016).
 
 **Design.**
+Lisanne Bainbridge, "Ironies of automation", *Automatica* (1983).
 Terry Winograd and Fernando Flores, *Understanding Computers and Cognition: A
 New Foundation for Design* (1986).
 Hubert Dreyfus, *Being-in-the-World: A Commentary on Heidegger's Being and
