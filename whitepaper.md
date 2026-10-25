@@ -411,7 +411,7 @@ Loose coupling is deliberate: each format can be adopted, implemented and
 versioned alone.
 
 Behaviour that spans both belongs in harness patterns, not in either
-specification. Two are already clear.
+specification. Two are already clear, and section 1 calls for a third.
 
 **News for a plan.** An intention names a subject, parties and locations,
 all particulars. A harness can recall what DKF believes about each, and any
@@ -438,6 +438,55 @@ what they observe themselves doing (Bem 1972), so a self-understanding that
 cites evidence is one the person can believe, and one that cites none is a
 hope. This is where a record of episodes would make the loop work, and it is
 the strongest argument for the gap in the next section.
+
+**Reflection.** One kind of breakdown never announces itself: a habit that
+has outlived its reason carries on smoothly, and nothing in use shows it.
+So a harness can't only wait for breakdowns. It has to give the person
+occasions to step back, and bring to them what stepping back needs.
+
+The occasion is the person's, not the harness's. The natural way to hold it
+is as an intention like any other: a recurring review, serving a terminus
+such as *being someone who lives on purpose*. The harness may suggest one,
+but the person adopts it, and when they would rather not reflect, nothing
+happens. A harness that schedules reflection on its own authority has made
+itself one more claim on the person's time.
+
+What a reflection brings, walking from each terminus down:
+
+- **What the self rests on.** The DKF claims each terminus cites, with what
+  has happened since that bears on them. A self-understanding whose evidence
+  has thinned is the first thing worth seeing.
+- **Candidates for outlived habits.** These are partly computable: a
+  recurring intention whose chain now ends at a terminus the person has
+  retired or reworded, or which rests on a belief that has since been
+  reconciled differently. The rest is the person's judgement, so the harness
+  lists candidates with their chains and asks.
+- **Desires still waiting.** Wants that were never adopted or let go. A
+  desire costs nothing to keep, which is why they pile up; reflection is
+  where each is adopted, which costs a why, or let go.
+- **The termini themselves.** Frankfurt's question, asked at the top of the
+  graph: is this still who I want to be? A terminus is the one object
+  reflection may change that nothing else in the format will prompt.
+
+Three constraints keep reflection from becoming the overthinking this paper
+began with. It is **bounded**: it shows what changed since the last
+reflection, not the whole workspace, and it ends when the person stops. It
+**proposes and never decides**, as everywhere in intentions: retiring a
+habit's intention, rewording a terminus, letting a desire go are the
+person's acts. And it **keeps authorship visible**: anything the harness
+inferred, such as a candidate habit or a thinning of evidence, says so,
+because a reflection that hands the person the assistant's conclusions about
+who they are is the opposite of the point.
+
+> *Draft note.* intentions has no retirement kind for a plan that has become
+> habit. An intention retires as `fulfilled`, `abandoned` or `superseded`, and
+> none says "this is now done without a plan". Section 8 says the plan can be
+> retired once a habit has formed, but the reflection pattern needs the
+> habit's reason to stay readable. Either a recurring intention stays active
+> after it has become habit, which keeps its reason but leaves resolution
+> placing instances nobody needs, or intentions gains a kind such as
+> `habituated`, retired but still walked by reflection. That is a question
+> for the intentions spec, and worth an issue there.
 
 > *Draft note.* Are there other harness patterns worth naming here? Candidates:
 > a commitment imported from iCalendar that contradicts a DKF belief about a
