@@ -486,7 +486,8 @@ who they are is the opposite of the point.
 > after it has become habit, which keeps its reason but leaves resolution
 > placing instances nobody needs, or intentions gains a kind such as
 > `habituated`, retired but still walked by reflection. That is a question
-> for the intentions spec, and worth an issue there.
+> for the intentions spec:
+> [intentions#30](https://github.com/nodelogicau/intentions/issues/30).
 
 > *Draft note.* Are there other harness patterns worth naming here? Candidates:
 > a commitment imported from iCalendar that contradicts a DKF belief about a
