@@ -100,8 +100,51 @@ The design rule that follows is that the formats should be quiet until a
 breakdown and loud at one. Most of the machinery in both specifications is
 about knowing when that moment has come.
 
-> *Draft note.* The table is a proposal. Check it against §16 and decide
-> whether it earns its place or is too neat.
+> *Draft note.* The table is a proposal. Before it stays, check it against
+> §16 and settle the following.
+>
+> - **The rows against the text.** Heidegger's three modes, as usually read:
+>   *conspicuousness* (*Auffälligkeit*), equipment found damaged or unusable
+>   when we reach for it; *obtrusiveness* (*Aufdringlichkeit*), something we
+>   need that is missing, and more obtrusive the more urgently it is needed;
+>   *obstinacy* (*Aufsässigkeit*), something neither broken nor missing that
+>   stands in the way and has to be dealt with before work can go on.
+>   Contradiction as conspicuous and a gap in recall as obtrusive look sound.
+>   Obstinacy is the loosest fit. A clashing commitment is in the way, but so
+>   is a changed belief about a plan's subject, which section 7 also calls
+>   obstinate. Decide whether obstinacy is about the plan or about the world,
+>   and use it one way throughout.
+> - **Un-ready-to-hand, not present-at-hand.** In §16 broken equipment is
+>   *un-ready-to-hand* (*unzuhanden*): it obtrudes, but still within the work
+>   and its purpose. It is not yet the detached object of theory. The text
+>   above says breakdown makes a thing present-at-hand, which is the
+>   simplification most summaries make. The distinction matters for design.
+>   What a harness should produce is un-readiness: the item, shown with what
+>   it was for, so the person can repair it and go back to the work. It
+>   should not invite them to theorise about it.
+> - **Breakdown lights up the context.** Heidegger's point in §16 is that
+>   breakdown makes the referential whole visible: the in-order-to that the
+>   broken thing belonged to. intentions' serves graph is that whole, made
+>   explicit. When something surfaces, the chain it serves should surface
+>   with it. That may be the strongest argument for the table, and section 6
+>   should make it.
+> - **When breakdown happens.** Heidegger's breakdowns happen during use, when
+>   we reach for the tool. DKF detects a contradiction when the claim is
+>   written, whether or not anyone is relying on the belief. That points to a
+>   design question for the harness: surface a conflict when it arrives, or
+>   when the belief is next used? The second is closer to the text and
+>   cheaper in attention. It also risks acting on an unreconciled belief.
+> - **Rows the table leaves out.** Procedures that stop working are plainly
+>   conspicuous. Desires never break down, because nothing is checked against
+>   them. That fits: a desire is not yet equipment, only a want waiting to be
+>   taken up. Episodes don't break down either, and they are where reflection
+>   happens instead. Say whether the table covers only what is in use.
+> - **Prior art.** Winograd and Flores (*Understanding Computers and
+>   Cognition*, 1986) made breakdown a principle of software design.
+>   Dreyfus's commentary (*Being-in-the-World*, 1991) is the standard reading
+>   of §§15–16, and Dourish (*Where the Action Is*, 2001) carries the idea
+>   into interaction design. Cite them, and say what is new here: the thing
+>   that breaks down is a person's own beliefs and plans, not a tool.
 
 ### Becoming who you are
 
