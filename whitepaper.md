@@ -183,8 +183,9 @@ can't easily examine a belief you can't see, or test a desire you have never
 written down.
 
 Nietzsche's subtitle to *Ecce Homo* is "how one becomes what one is". The
-intentions format takes that literally. Every intention must say what it is
-for, and the chain of reasons ends in a *terminus*: a standing
+intentions format takes that literally. Every intention is to say what it is
+for (an unserved intention is a warning under `intentions/0.1` and a refusal
+from `0.2`), and the chain of reasons ends in a *terminus*: a standing
 self-understanding, titled as a person rather than a task, such as *being
 someone who follows through*. That is the format's answer to the underground
 man: the regress ends at a foundation the person has chosen and written down.
@@ -509,8 +510,9 @@ That would be a small mismatch if episodes were peripheral. They are not.
 Episodic memory is where the loop between intending and doing closes. Without
 a record of what was done, there is nothing to compare against what was
 meant, nothing for a self-understanding to cite, and no basis for asking
-whether a person is becoming who they meant to be. Reflection, the fourth
-row of the table in section 2, has nothing to work on.
+whether a person is becoming who they meant to be. Reflection, which the
+episodic row of the table in section 2 names as the moment episodes are
+needed, has nothing to work on.
 
 > *Draft note.* Is this a third format or a DKF extension? Episodes need no
 > dialectic, which points to a separate format. They take particulars as
@@ -536,8 +538,10 @@ runs without the goal being called to mind (Wood and Neal 2007; Lally et al.
 2010). Aristotle put the same thing in terms closer to this paper's: we
 become just by doing just acts (*Nicomachean Ethics*, II.1). A terminus
 such as *being someone who follows through* is finally made real in habit,
-not in a file. The formats support the way there, and then let the plan be
-retired.
+not in a file. The formats support the way there, and then the plan can stop
+being planned, though its reason has to stay readable for reflection (section
+7). How intentions records that is open:
+[intentions#30](https://github.com/nodelogicau/intentions/issues/30).
 
 **A habit's breakdown is that it outlives its reason.** Because a habit no
 longer consults its goal, it carries on when the goal has changed, and
