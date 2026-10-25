@@ -83,10 +83,12 @@ back into view (§16). It is then *un-ready-to-hand*: still part of the work,
 but in the way of it. Only when we step back from the work altogether does it
 become *present-at-hand*, a detached object to stare at and theorise about.
 
-Beliefs and intentions held in the head never fully withdraw. Unfinished goals
-keep intruding on unrelated tasks until a plan has been made for them, at
-which point the intrusion stops even though the goal is still unfinished
-(Zeigarnik 1927; Masicampo and Baumeister 2011). Kept outside the head and
+Beliefs and intentions held in the head never fully withdraw. Zeigarnik found
+that interrupted tasks are remembered better than finished ones: an unfinished
+goal stays active in the mind (Zeigarnik 1927). Masicampo and Baumeister showed
+what that costs. An unfinished goal intrudes on unrelated tasks, and making a
+specific plan for it stops the intrusion, even though the goal is still
+unfinished (Masicampo and Baumeister 2011). Kept outside the head and
 trusted, they can behave like equipment: absent while things go well, back in
 view the moment something goes wrong.
 
@@ -195,12 +197,14 @@ man: the regress ends at a foundation the person has chosen and written down.
 
 If a person is going to forget something on the strength of a store, the
 store has to be trustworthy in a specific way. Clark and Chalmers, arguing
-that a notebook can be part of a mind, set conditions for when an external
-store counts: it is reliably available, readily used, trusted when it is
-consulted, and was endorsed when it was written (Clark and Chalmers 1998).
-Each reads as a requirement on a harness. The last is the one most agent
-memory fails, because it doesn't record who wrote what. That is the subject
-of section 4.
+that a notebook can be part of a mind, set three conditions for when an
+external store counts: it is reliably available, readily used, and trusted
+when it is consulted (Clark and Chalmers 1998). They offer a fourth more
+tentatively: that what is in the store was consciously endorsed at some point
+in the past. Each reads as a requirement on a harness. This paper takes the
+tentative fourth as firm, because it is the one most agent memory fails: a
+store that doesn't record who wrote what can't show that anything in it was
+ever endorsed. That is the subject of section 4.
 
 ---
 
