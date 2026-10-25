@@ -150,12 +150,13 @@ needs.
 >   explicit. When something surfaces, the chain it serves should surface
 >   with it. That may be the strongest argument for the table; section 6
 >   now makes it, under *What surfaces with a breakdown*.
-> - **When breakdown happens.** Heidegger's breakdowns happen during use, when
->   we reach for the tool. DKF detects a contradiction when the claim is
->   written, whether or not anyone is relying on the belief. That points to a
->   design question for the harness: surface a conflict when it arrives, or
->   when the belief is next used? The second is closer to the text and
->   cheaper in attention. It also risks acting on an unreconciled belief.
+> - **When breakdown happens.** Settled: on arrival. Heidegger's breakdowns
+>   happen during use, and waiting for use would be closer to the text and
+>   cheaper in attention. But a store is read by harnesses and people its
+>   writer can't know about, so section 5 now says why consistency is kept
+>   when a claim is written rather than left to whoever reads it. Arrival is
+>   where the harness reconciles; it is not necessarily where the person is
+>   interrupted.
 > - **Rows the table leaves out.** Settled: a habit outliving its reason is
 >   the fourth row, *outlived*. It is not one of Heidegger's modes, and the
 >   text says so; check that the equipment analogue (a tool still used for a
@@ -327,6 +328,26 @@ retracted inputs. That is exactly the conspicuous breakdown of section 1. A
 well-behaved harness says nothing about a particular whose belief is settled,
 and surfaces it when something new arrives that the current belief doesn't
 account for.
+
+It surfaces it then, on arrival, and not later when the belief is next used.
+Heidegger's breakdowns happen in use, when we reach for the tool, and waiting
+for use would spend less attention. But a store that outlives a conversation
+is read by people and harnesses its writer can't foresee: another assistant,
+a colleague with access to an organisation's workspace, a public feed, the
+same person a year later. None of them can be relied on to notice that a
+belief has an unreconciled contradiction beside it, or to reconcile it
+before acting. A belief that is only consistent if its reader does the work
+is not one anyone can safely forget. So consistency is kept where the
+writing happens, by the harness that wrote the new claim and can see what it
+conflicts with, and every later reader gets a belief that is either
+reconciled or visibly unsettled.
+
+On arrival does not mean interrupting the person on arrival. The harness
+reconciles what it can, and records why in a synthesis that names it as the
+source. It brings the person in only where the reconciliation needs their
+judgement, or where the change stands in the way of something they mean to
+do, which is the obstinate breakdown of section 7. The quiet the person gets
+comes from the work being done promptly, not from its being postponed.
 
 particulars is the retrospective layer: what is known. It is deliberately
 *not* a log of events, and not a store of procedures.
