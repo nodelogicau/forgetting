@@ -129,8 +129,8 @@ about knowing when that moment has come.
 >   breakdown makes the referential whole visible: the in-order-to that the
 >   broken thing belonged to. intentions' serves graph is that whole, made
 >   explicit. When something surfaces, the chain it serves should surface
->   with it. That may be the strongest argument for the table, and section 6
->   should make it.
+>   with it. That may be the strongest argument for the table; section 6
+>   now makes it, under *What surfaces with a breakdown*.
 > - **When breakdown happens.** Heidegger's breakdowns happen during use, when
 >   we reach for the tool. DKF detects a contradiction when the claim is
 >   written, whether or not anyone is relying on the belief. That points to a
@@ -337,6 +337,42 @@ person has chosen to rest on, and comes back only when something actually
 conflicts with it. Resolution ranks placements and never chooses. Clashes are
 flags, never decisions. Both keep the person's acts the person's.
 
+### What surfaces with a breakdown
+
+When equipment breaks down, Heidegger says, what comes into view is not only
+the broken thing but the whole it belonged to: the chain of *in-order-to*
+that ends in a *for-the-sake-of*, which is to say in who someone is trying to
+be (*Being and Time*, §§16–18). While the hammer works, the house it is for
+stays out of sight. When it breaks, the house is suddenly what matters.
+
+intentions' serves graph is that whole, written down. Its references even
+carry Heidegger's names: an intention serves another *in-order-to*, and the
+chain ends in a terminus it serves *for-the-sake-of*. So when something
+surfaces, the chain it serves should surface with it. A clash on *90 minutes
+on the budget narrative* comes back as: in order to get the board pack out by
+week 38, in order to run the finance function well, for the sake of being
+someone who follows through.
+
+This does three things that the item alone can't.
+
+- **It keeps the breakdown practical.** Shown with what it is for, the
+  clashing block is un-ready-to-hand: a problem inside the work, to be fixed
+  so the work can go on. Shown alone, it is present-at-hand: an isolated
+  object, and an invitation to deliberate from scratch.
+- **It lets the person repair at the right level.** Perhaps the board pack
+  has moved and the block no longer matters. Perhaps another way of running
+  the finance function well would do. The chain shows where the slack is.
+  Reading a plan at the level of what it is for also makes it more resistant
+  to casual reconsideration than reading it at the level of how it is done
+  (Fujita et al. 2006).
+- **It stops the regress.** The chain ends at the terminus, a foundation the
+  person chose. Surfacing goes up only that far, so a breakdown never turns
+  into the underground man's search for ever more primary causes.
+
+particulars has the same shape for belief. A contradicted belief surfaces
+with its synthesis and the claims it rests on, so the person sees what the
+belief was holding up before deciding what to do with it.
+
 Implementation intentions, "when X, I will Y", are the strongest known form
 of a decision closed in advance (Gollwitzer 1999), and intentions' policies
 are where they live.
@@ -498,6 +534,8 @@ Marcia Johnson, Shahin Hashtroudi and D. Stephen Lindsay, "Source
 monitoring", *Psychological Bulletin* (1993).
 Peter Gollwitzer, "Implementation intentions: strong effects of simple
 plans", *American Psychologist* (1999).
+Kentaro Fujita, Yaacov Trope, Nira Liberman and Maya Levin-Sagi, "Construal
+levels and self-control", *JPSP* (2006).
 E. J. Masicampo and Roy Baumeister, "Consider it done! Plan making can
 eliminate the cognitive effects of unfulfilled goals", *JPSP* (2011).
 Evan Risko and Sam Gilbert, "Cognitive offloading", *Trends in Cognitive
