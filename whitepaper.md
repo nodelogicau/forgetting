@@ -96,7 +96,11 @@ analogue here:
 |---|---|---|
 | Conspicuous | The tool is broken | A belief is contradicted |
 | Obtrusive | The tool is missing | Recall finds nothing about something that matters |
-| Obstinate | Something is in the way | A commitment clashes with what the person meant to do |
+| Obstinate | Something is in the way | Something stands in the way of a plan: a clashing commitment, or a changed belief the plan rested on |
+
+Obstinacy is always relative to a plan. Nothing is in the way in itself, only
+in the way of something the person means to do, which is why the third row
+belongs to intentions while the first two belong to particulars.
 
 The design rule that follows is that the formats should be quiet until a
 breakdown and loud at one. Most of the machinery in both specifications is
@@ -112,10 +116,13 @@ about knowing when that moment has come.
 >   *obstinacy* (*Aufsässigkeit*), something neither broken nor missing that
 >   stands in the way and has to be dealt with before work can go on.
 >   Contradiction as conspicuous and a gap in recall as obtrusive look sound.
->   Obstinacy is the loosest fit. A clashing commitment is in the way, but so
->   is a changed belief about a plan's subject, which section 7 also calls
->   obstinate. Decide whether obstinacy is about the plan or about the world,
->   and use it one way throughout.
+>   Obstinacy was the loosest fit, because both a clashing commitment and a
+>   changed belief about a plan's subject could be called "in the way".
+>   Settled: obstinacy is about the plan. A thing is obstinate only in
+>   relation to what it obstructs, whatever its source, which also matches
+>   Heidegger, for whom obstinacy is relative to the work in hand. A changed
+>   belief on its own is particulars' business; it becomes obstinate only
+>   when it stands in the way of an intention (section 7).
 > - **Un-ready-to-hand, not present-at-hand.** In §16 broken equipment is
 >   *un-ready-to-hand* (*unzuhanden*): it obtrudes, but still within the work
 >   and its purpose. It is not yet the detached object of theory. Summaries
@@ -392,9 +399,21 @@ specification. Two are already clear.
 
 **News for a plan.** An intention names a subject, parties and locations,
 all particulars. A harness can recall what DKF believes about each, and any
-belief newer than the intention's last edit is news the person may need. That
-is the obstinate breakdown: something changed in the world that gets in the
-way of the plan.
+belief newer than the intention's last edit is news the person may need.
+
+News is not yet a breakdown. A changed belief is a matter for particulars,
+and is reconciled there, until it stands in the way of something the person
+means to do. Only then is it obstinate, and the obstinacy belongs to the
+plan, not to the belief. Whether a new belief does stand in the way is a
+judgement, so the harness flags and the person decides, as with any clash in
+intentions. When it does, it surfaces as section 6 describes, with the chain
+the plan serves, so the person can see whether the plan is blocked or only
+this route to what it is for.
+
+A commitment imported from a calendar that clashes with an intention is the
+same breakdown arriving from the other direction. intentions already flags
+it. What the pattern adds is the belief side: the plan can be obstructed by
+what the person learns, not only by what other people ask of their time.
 
 **The return path.** The intentions terminus *being someone who follows
 through* references a DKF claim the person holds about themselves. That claim
