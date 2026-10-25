@@ -66,6 +66,13 @@ regress stops not because the person stopped looking, as the man of action
 did, but because the foundations are written down, chosen, and open to
 inspection whenever they're needed. Then they're not needed most of the time.
 
+Nietzsche frees the present from the past. Camus asks the same of the
+future: "Real generosity toward the future lies in giving all to the
+present" (*The Rebel*, "Thought at the Meridian"). That can sound like a case
+against planning, but it is the case for keeping plans somewhere else. A
+person can give everything to the present only if the future they mean to
+build is held for them, and comes back when it needs them.
+
 ### The ready-to-hand
 
 Heidegger gives the shape of what forgetting buys. Equipment that works is
@@ -422,6 +429,8 @@ Friedrich Nietzsche, "On the Uses and Disadvantages of History for Life"
 (1874); *On the Genealogy of Morals* (1887), II §1; *Ecce Homo* (1888).
 Martin Heidegger, *Being and Time* (1927), §§15–16.
 Jean-Paul Sartre, *Being and Nothingness* (1943).
+Albert Camus, *The Rebel* (1951), tr. Anthony Bower, "Thought at the
+Meridian".
 Harry Frankfurt, "Freedom of the will and the concept of a person",
 *Journal of Philosophy* (1971).
 Michael Bratman, *Intention, Plans, and Practical Reason* (1987).
