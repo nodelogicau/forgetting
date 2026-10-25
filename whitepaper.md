@@ -41,8 +41,8 @@ format than a way back to the reasons behind their habits.
 ### The overthinker
 
 Dostoevsky's underground man can't act. Every reason he finds for acting
-draws another, more primary reason after it: "Where are my primary causes on
-which I can rest? Where are my foundations?" The regress has no floor, and
+draws another, more primary reason after it: "Where are the primary causes on
+which I am to build? Where are my foundations?" The regress has no floor, and
 the result of so much consciousness, he says, is inertia. The man of action,
 by contrast, simply stops at the nearest cause and takes it for a foundation.
 He is calm because he doesn't look closely.
@@ -660,7 +660,8 @@ than noise.
 
 **Philosophy.**
 Aristotle, *Nicomachean Ethics*, Book II.
-Fyodor Dostoevsky, *Notes from Underground* (1864), Part I §5.
+Fyodor Dostoevsky, *Notes from Underground* (1864), tr. Constance Garnett,
+Part I §5.
 Friedrich Nietzsche, "On the Uses and Disadvantages of History for Life"
 (1874); *On the Genealogy of Morals* (1887), II §1; *Ecce Homo* (1888).
 Martin Heidegger, *Being and Time* (1927), §§15–18.
