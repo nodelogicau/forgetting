@@ -77,8 +77,10 @@ build is held for them, and comes back when it needs them.
 
 Heidegger gives the shape of what forgetting buys. Equipment that works is
 *ready-to-hand*: it withdraws into the activity, and you attend to the work,
-not the hammer (*Being and Time*, §15). Only when it breaks down does it
-become *present-at-hand*, an object to stare at and think about (§16).
+not the hammer (*Being and Time*, §15). Only when it breaks down does it come
+back into view (§16). It is then *un-ready-to-hand*: still part of the work,
+but in the way of it. Only when we step back from the work altogether does it
+become *present-at-hand*, a detached object to stare at and theorise about.
 
 Beliefs and intentions held in the head never fully withdraw. Unfinished goals
 keep intruding on unrelated tasks until a plan has been made for them, at
@@ -116,9 +118,10 @@ about knowing when that moment has come.
 >   and use it one way throughout.
 > - **Un-ready-to-hand, not present-at-hand.** In §16 broken equipment is
 >   *un-ready-to-hand* (*unzuhanden*): it obtrudes, but still within the work
->   and its purpose. It is not yet the detached object of theory. The text
->   above says breakdown makes a thing present-at-hand, which is the
->   simplification most summaries make. The distinction matters for design.
+>   and its purpose. It is not yet the detached object of theory. Summaries
+>   often say breakdown makes a thing present-at-hand; the text above now
+>   keeps the two apart, and later sections should too. The distinction
+>   matters for design.
 >   What a harness should produce is un-readiness: the item, shown with what
 >   it was for, so the person can repair it and go back to the work. It
 >   should not invite them to theorise about it.
@@ -236,8 +239,8 @@ change was wrong.
 For the agent these are accuracy problems. For the person they are the
 reason they can't let go. A store that might silently replace a belief, or
 can't say where one came from, has to be checked, and a store that has to be
-checked is present-at-hand all the time. It costs the attention it was meant
-to free.
+checked never withdraws. It is always in the way, and it costs the attention
+it was meant to free.
 
 ---
 
@@ -449,7 +452,7 @@ than noise.
   purpose may belong only here and on the landing pages, so the specs stay
   neutral about what they are used for.
 - **When does upkeep become the breakdown?** A store the person has to tend
-  is present-at-hand itself. The harness has to take on capture,
+  never withdraws: it becomes the thing in the way. The harness has to take on capture,
   reconciliation and surfacing so the person doesn't. How much can it take on
   before authorship is lost?
 - **Agent or person?** The formats serve an agent's memory and a person's
@@ -499,6 +502,14 @@ E. J. Masicampo and Roy Baumeister, "Consider it done! Plan making can
 eliminate the cognitive effects of unfulfilled goals", *JPSP* (2011).
 Evan Risko and Sam Gilbert, "Cognitive offloading", *Trends in Cognitive
 Sciences* (2016).
+
+**Design.**
+Terry Winograd and Fernando Flores, *Understanding Computers and Cognition: A
+New Foundation for Design* (1986).
+Hubert Dreyfus, *Being-in-the-World: A Commentary on Heidegger's Being and
+Time, Division I* (1991).
+Paul Dourish, *Where the Action Is: The Foundations of Embodied Interaction*
+(2001).
 
 **Agents and evaluation.**
 Anand Rao and Michael Georgeff, "Modeling rational agents within a
