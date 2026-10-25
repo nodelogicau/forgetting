@@ -91,21 +91,32 @@ trusted, they can behave like equipment: absent while things go well, back in
 view the moment something goes wrong.
 
 Heidegger names three ways equipment comes back into view, and each has an
-analogue here:
+analogue here. A fourth, which he doesn't name, matters once habits are
+counted:
 
 | Breakdown | Equipment | Externalised memory |
 |---|---|---|
 | Conspicuous | The tool is broken | A belief is contradicted |
 | Obtrusive | The tool is missing | Recall finds nothing about something that matters |
 | Obstinate | Something is in the way | Something stands in the way of a plan: a clashing commitment, or a changed belief the plan rested on |
+| Outlived | The tool still works, for a job no longer being done | A habit outlives its reason |
 
 Obstinacy is always relative to a plan. Nothing is in the way in itself, only
 in the way of something the person means to do, which is why the third row
 belongs to intentions while the first two belong to particulars.
 
+The fourth row is different in kind. In the first three, something obtrudes
+while the person is working. An outlived habit never does: it no longer
+consults its goal, so it carries on smoothly after the goal has changed, and
+it is the person who is last to notice. It shows only when someone steps
+back and asks why they still do it (section 8).
+
 The design rule that follows is that the formats should be quiet until a
 breakdown and loud at one. Most of the machinery in both specifications is
-about knowing when that moment has come.
+about knowing when that moment has come. The fourth row adds a second rule:
+because one kind of breakdown never announces itself, the formats also have
+to give the person occasions to reflect, and keep the reasons that reflection
+needs.
 
 > *Draft note.* The table is a proposal. Before it stays, check it against
 > §16 and settle the following.
@@ -145,16 +156,15 @@ about knowing when that moment has come.
 >   design question for the harness: surface a conflict when it arrives, or
 >   when the belief is next used? The second is closer to the text and
 >   cheaper in attention. It also risks acting on an unreconciled belief.
-> - **Rows the table leaves out.** Procedures that stop working are plainly
->   conspicuous, but those are a harness's procedures. A person's habits have
->   a mode of their own: a habit outlives its reason, and nothing obtrudes in
->   use, because the habit no longer consults its goal. It shows only on
->   reflection (section 8). Desires never break down, because nothing is
+> - **Rows the table leaves out.** Settled: a habit outliving its reason is
+>   the fourth row, *outlived*. It is not one of Heidegger's modes, and the
+>   text says so; check that the equipment analogue (a tool still used for a
+>   job no longer being done) holds up, and whether there is a better name.
+>   Procedures that stop working are plainly conspicuous, but those are a
+>   harness's procedures. Desires never break down, because nothing is
 >   checked against them. That fits: a desire is not yet equipment, only a
 >   want waiting to be taken up. Episodes don't break down either; they are
->   where reflection happens. Decide whether a habit outliving its reason is
->   a fourth row, or whether the table covers only what is in use and
->   reflection gets its own treatment.
+>   where reflection happens.
 > - **Prior art.** Winograd and Flores (*Understanding Computers and
 >   Cognition*, 1986) made breakdown a principle of software design.
 >   Dreyfus's commentary (*Being-in-the-World*, 1991) is the standard reading
@@ -482,8 +492,8 @@ retired.
 **A habit's breakdown is that it outlives its reason.** Because a habit no
 longer consults its goal, it carries on when the goal has changed, and
 because it is invisible from the inside, the person is the last to notice.
-This is a breakdown of a kind section 1's table doesn't list. Nothing obtrudes
-in use; it shows only when someone reflects. Keeping the why outside, in the
+This is the fourth row of section 1's table, the one Heidegger doesn't list.
+Nothing obtrudes in use; it shows only when someone reflects. Keeping the why outside, in the
 intention the habit came from and the terminus that intention served, is what
 lets a habit be examined later. It is Frankfurt's question again, asked of
 habits rather than desires: is this something I endorse doing?
