@@ -149,11 +149,12 @@ about knowing when that moment has come.
 >   conspicuous, but those are a harness's procedures. A person's habits have
 >   a mode of their own: a habit outlives its reason, and nothing obtrudes in
 >   use, because the habit no longer consults its goal. It shows only on
->   reflection (section 8). Decide whether that is a fourth row or the reason
->   the table is limited to what is in use. Desires never break down, because
->   nothing is checked against them. That fits: a desire is not yet equipment, only a want waiting to be
->   taken up. Episodes don't break down either, and they are where reflection
->   happens instead. Say whether the table covers only what is in use.
+>   reflection (section 8). Desires never break down, because nothing is
+>   checked against them. That fits: a desire is not yet equipment, only a
+>   want waiting to be taken up. Episodes don't break down either; they are
+>   where reflection happens. Decide whether a habit outliving its reason is
+>   a fourth row, or whether the table covers only what is in use and
+>   reflection gets its own treatment.
 > - **Prior art.** Winograd and Flores (*Understanding Computers and
 >   Cognition*, 1986) made breakdown a principle of software design.
 >   Dreyfus's commentary (*Being-in-the-World*, 1991) is the standard reading
