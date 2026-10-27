@@ -23,7 +23,7 @@ Colours SHALL be defined as CSS custom properties on `:root`, redefined under `p
 
 #### Scenario: The system theme changes
 - **WHEN** the operating system switches between light and dark
-- **THEN** the page, including the hero diagram and the draft notes, re-renders legibly with no hard-coded colour remaining from the other scheme
+- **THEN** the page, including the figure and the draft notes, re-renders legibly with no hard-coded colour remaining from the other scheme
 
 ### Requirement: The page is the only copy of the whitepaper
 `docs/index.html` SHALL carry the full text of the whitepaper, from the Summary through the References, and SHALL be where the paper is edited. `whitepaper.md` SHALL be a stub stating that the paper has moved to https://forgetting.fyi and SHALL NOT carry any of the paper's argument. No script or build step SHALL generate the page from another source.
@@ -34,7 +34,7 @@ Colours SHALL be defined as CSS custom properties on `:root`, redefined under `p
 
 #### Scenario: The port is checked
 - **WHEN** each paragraph of the page's paper body is read against `whitepaper.md` at the last commit before it became a stub
-- **THEN** the wording, section order, quotations and references agree, apart from the title block absorbed into the hero
+- **THEN** the wording, section order, quotations and references agree, apart from the paper's title block, which becomes the page's title block
 
 ### Requirement: The source keeps prose diffs small
 The paper's prose in `docs/index.html` SHALL be one block element per paragraph, wrapped at about 78 columns, with no inline `style` attributes. `docs/README.md` SHALL record this convention.
@@ -43,26 +43,33 @@ The paper's prose in `docs/index.html` SHALL be one block element per paragraph,
 - **WHEN** a single word in a paragraph is changed
 - **THEN** the diff touches no more than the wrapped lines of that paragraph
 
-### Requirement: The hero states the headline, the credit and the calls to action
-The hero SHALL carry the eyebrow "Forgetting · the reasoning behind particulars and intentions", the headline "Remember forward.", a lead paragraph drawn from the paper's Summary, a primary call to action linking to the paper's first section, and secondary links to https://particulars.fyi and https://intentions.fyi. A muted line beneath the hero diagram SHALL credit "It's a poor sort of memory that only works backwards" to the White Queen in Lewis Carroll's *Through the Looking-Glass*, and the References SHALL list that work. A status line SHALL state that the paper is a draft and that nothing in it is normative. No heading on the page SHALL name a writer.
+### Requirement: The page opens with a paper's title block
+The page SHALL open with a title block, not a product hero: the series name "Forgetting", the title "Remember forward.", the paper's subtitle, an epigraph quoting "It's a poor sort of memory that only works backwards" and crediting the White Queen in Lewis Carroll's *Through the Looking-Glass*, and a status paragraph stating that the paper is a draft, that nothing in it is normative, and linking to https://particulars.fyi and https://intentions.fyi. The References SHALL list *Through the Looking-Glass*. The title block SHALL contain no buttons or calls to action, and no heading on the page SHALL name a writer.
 
 #### Scenario: A reader arrives
 - **WHEN** the page loads at the top on a desktop viewport
-- **THEN** the headline, lead, calls to action and hero diagram are visible without scrolling
+- **THEN** the title, subtitle, epigraph and status paragraph are visible without scrolling, and the paper's text follows the figure and contents without anything in between
 
-#### Scenario: The credit is traced
-- **WHEN** the hero's credit line is read against the References
+#### Scenario: The epigraph is traced
+- **WHEN** the epigraph's credit is read against the References
 - **THEN** *Through the Looking-Glass* is listed there
 
 #### Scenario: A reader follows a sibling link
-- **WHEN** the particulars or intentions link in the hero is activated
+- **WHEN** the particulars.fyi or intentions.fyi link in the status paragraph is activated
 - **THEN** the browser lands on that format's site
 
-### Requirement: The hero diagram shows the kinds of memory over the provenance spine
-The hero diagram SHALL show four kinds of memory: semantic, labelled particulars, and prospective, labelled intentions, drawn as specified; episodic and procedural drawn as not yet specified, in a visibly different style. It SHALL show provenance as a band beneath all four. The particulars and intentions elements SHALL link to their sites. The SVG SHALL carry a `<title>` and `<desc>`.
+### Requirement: The typography serves reading, not promotion
+The page SHALL be set as a paper: a serif system font stack, one left-aligned text column of about 40rem, links in the text colour and underlined, and no accent colour. Colour SHALL be limited to the text, muted-text, rule and background tokens. Draft notes, tables and the figure SHALL be distinguished by rules, italics and weight, not by fills or hues.
+
+#### Scenario: A reviewer checks the palette
+- **WHEN** the `:root` custom properties are read
+- **THEN** each one is a neutral (background, text, muted text, or rule) in both schemes, and no element uses a colour outside them
+
+### Requirement: The figure shows the kinds of memory over the provenance spine
+The title block's figure SHALL show four kinds of memory: semantic, labelled particulars, and prospective, labelled intentions, drawn as specified; episodic and procedural drawn as not yet specified, in a visibly different style. It SHALL show provenance as a band beneath all four. The particulars and intentions elements SHALL link to their sites. The SVG SHALL carry a `<title>` and `<desc>`.
 
 #### Scenario: The diagram is read
-- **WHEN** the hero diagram is read
+- **WHEN** the figure is read
 - **THEN** two kinds appear as specified formats, two appear as gaps, and provenance spans all four
 
 #### Scenario: The diagram is read against the paper

@@ -34,33 +34,41 @@ The stub keeps `blob/main/whitepaper.md` links from dead-ending. It is a title, 
 
 **Page structure.**
 ```
-  header.hero
-    eyebrow   Forgetting · the reasoning behind particulars and intentions
-    h1        Remember forward.
-    lead      from the Summary
-    CTAs      Read the paper (→ #summary) · particulars.fyi · intentions.fyi
-    figure    memory kinds over the provenance spine (inline SVG)
-    p.credit  "It's a poor sort of memory that only works backwards."
-              — the White Queen, Through the Looking-Glass
-    p.status  Draft · last revised <date>
-  nav#contents   Summary, §1–§10, References
+  header.title
+    p.series      Forgetting
+    h1            Remember forward.
+    p.subtitle    the paper's own subtitle
+    epigraph      "It's a poor sort of memory that only works backwards."
+                  — the White Queen, Through the Looking-Glass
+    p.status      the Draft blockquote's wording, with particulars.fyi and
+                  intentions.fyi linked beside the format names
+    figure        Figure 1: memory kinds over the provenance spine
+  nav#contents    Summary, §1–§10, References
   main > article
     section#summary
     section#why-forget … section#open-questions   (h2, with h3 subsections)
     section#references
-  footer   licence sentence
+  footer          licence sentence
 ```
-The paper's own title block (title, subtitle, the Draft blockquote) is absorbed into the hero. The hero's lead and status line replace it, and the Draft blockquote's sentence about the specifications being normative moves into the status area, unchanged.
+The paper's own title block (title, subtitle, the Draft blockquote) becomes the page's title block. "Forgetting" becomes the series line above the title, and the Draft blockquote becomes the status paragraph, unchanged except that the two sites are linked.
 
-**The headline and its credit.** "Remember forward." pairs with the site's name: forgetting is what the person gets to do, and the headline says what the remembering is for. The Carroll line is credited in muted text under the hero diagram, as intentions credits Heidegger, and Carroll is listed in the References (*Through the Looking-Glass*, 1871, ch. 5). No heading names a writer.
+**A paper, not a pitch.** The first build reused the sibling landing pages' hero: uppercase accent eyebrow, centred display headline, pill buttons, a tinted plum palette, amber draft-note callouts and rules between sections. On a long essay that read as a product pitch and pulled attention away from the text, so it was dropped. The page is set as a paper instead:
+- a serif system stack (Iowan Old Style, Palatino, Charter, Georgia), with no web font;
+- one left-aligned column of about 40rem;
+- no accent colour: the palette is background, text, muted text and rule, in both schemes;
+- links in the text colour, underlined with a light rule;
+- no buttons, and the sibling sites linked in running text;
+- section breaks by spacing rather than rules.
 
-**The hero diagram.** Four boxes, one per kind of memory from §2 and §8. *semantic → particulars* and *prospective → intentions* are solid and link to their sites. *episodic* ("not yet specified") and *procedural* ("a way back to the reasons") are dashed. A band beneath all four is labelled *provenance*, from §4, because the paper argues it is the property the family shares. The box captions stay true to the paper's own words, and the diagram carries a `<title>` and `<desc>` for screen readers.
+What it shares with the siblings is the build discipline, not the look: one hand-written file, no script, no external request, light and dark through custom properties.
 
-**Stable section ids, chosen by hand.** These are short slugs of each heading's subject, not generated from heading text: `summary`, `why-forget`, `memory`, `why-agents-forget`, `provenance`, `semantic`, `prospective`, `how-they-meet`, `gaps`, `measuring`, `open-questions`, `references`. Subsections get ids where the paper or a sibling is likely to link (`active-forgetting`, `ready-to-hand`, `episodic`, `procedural`). Renaming a heading leaves its id alone. The list of ids is recorded in `docs/README.md` as the deep-linking interface.
+**The title and the epigraph.** "Remember forward." pairs with the series name: forgetting is what the person gets to do, and the title says what the remembering is for. The Carroll line stands as an epigraph under the subtitle, and Carroll is listed in the References (*Through the Looking-Glass*, 1871, ch. 5). No heading names a writer.
 
-**Draft notes are styled as open, not hidden.** Each `> *Draft note.*` becomes `<aside class="draft-note">` with the label "Draft note" and a tinted left rule in the palette's challenge hue, the same family of colour intentions uses for flags. Readers see where the argument is thin, which is part of the paper's honesty about its status.
+**Figure 1.** Four boxes, one per kind of memory from §2 and §8. *semantic → particulars* and *prospective → intentions* have solid outlines and link to their sites. *episodic* ("not yet specified") and *procedural* ("a way back to the reasons") are dashed. A band beneath all four is labelled *provenance*, from §4, because the paper argues it is the property the family shares. It is drawn in thin monochrome lines, like a figure in a paper. The box captions stay true to the paper's own words, and the figure carries a `<title>` and `<desc>` for screen readers.
 
-**Siblings, not twins.** The same neutrals, system font stack, type scale, section rhythm and SVG class vocabulary as the two format sites. The accent hue differs: particulars is green (`#0e8a6d`) and intentions indigo (`#4a4fd6`), so forgetting takes a third, a muted plum or rose, fixed during implementation in `:root` for both schemes. Body text is set for reading at length (about 68ch measure and a larger line-height than the sibling landing pages), since this page is read end to end.
+**Stable section ids, chosen by hand.** These are short slugs of each heading's subject, not generated from heading text: `summary`, `why-forget`, `memory`, `why-agents-forget`, `provenance`, `semantic`, `prospective`, `how-they-meet`, `gaps`, `measuring`, `open-questions`, `references`. Every subsection gets an id too. Renaming a heading leaves its id alone. The list of ids is recorded in `docs/README.md` as the deep-linking interface.
+
+**Draft notes are visible but quiet.** Each `> *Draft note.*` becomes `<aside class="draft-note">`, labelled "Draft note" in italics and set in muted text behind a thin left rule. Readers can see where the argument is thin, which is part of the paper's honesty about its status, and the note doesn't shout over the argument around it.
 
 **Claims about a format defer to its README.** §5–§7 describe particulars and intentions. The page may argue for why they are as they are, but nothing it says about what a format does may contradict that format's README on `main`. This is the siblings' "says nothing the README does not" turned outward. The paper keeps its own line that nothing here is normative.
 
@@ -84,7 +92,7 @@ The paper's own title block (title, subtitle, the Draft blockquote) is absorbed 
 
 ## Settled during implementation
 
-- **Accent hue:** plum, `#8a3d7a` on light and `#e3a1d4` on dark, with `#f5e8f1` / `#35223a` as the soft fill. Draft notes reuse intentions' challenge amber.
+- **No accent hue.** A plum accent was tried first and removed with the rest of the landing-page styling; see *A paper, not a pitch*.
 - **No "last revised" date.** A date maintained by hand goes stale, and the git log already records every revision. The status line carries the Draft blockquote's wording unchanged.
 - **Port source:** `whitepaper.md` at `15b95da`, plus the Carroll entry added to the References in this change.
 - **Subsection ids** go beyond the four named above: every `h3` in the body has one (`overthinker`, `becoming`, `what-the-store-needs`, `surfacing` as well). All are listed in `docs/README.md`.

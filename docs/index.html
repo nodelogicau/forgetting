@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forgetting</title>
 <meta name="description" content="Forgetting — why we externalise memory, what kinds there are, and how particulars and intentions fit together. The reasoning behind both formats.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%238a3d7a' stroke-width='4'/%3E%3Cpath d='M13 9 L20 16 L13 23' fill='none' stroke='%238a3d7a' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23555555' stroke-width='4'/%3E%3Cpath d='M13 9 L20 16 L13 23' fill='none' stroke='%23555555' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <!--
   This file is the whitepaper. There is no other copy: whitepaper.md is a
   stub pointing here, and its git history holds the paper up to the move.
@@ -21,27 +21,19 @@
 -->
 <style>
   :root {
-    --bg: #faf9f7;
-    --fg: #1f2430;
-    --muted: #5b6270;
-    --line: #d8d5cf;
-    --card: #ffffff;
-    --accent: #8a3d7a;
-    --accent-soft: #f5e8f1;
-    --challenge: #b45309;
-    --challenge-soft: #fbeedd;
+    --bg: #fdfcfa;
+    --fg: #222222;
+    --muted: #6b6b6b;
+    --line: #dddad4;
+    --rule: #b9b5ad;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #12151c;
-      --fg: #e8e6e1;
-      --muted: #a0a7b3;
-      --line: #2c313d;
-      --card: #1a1e27;
-      --accent: #e3a1d4;
-      --accent-soft: #35223a;
-      --challenge: #f0a04b;
-      --challenge-soft: #2f2619;
+      --bg: #17181b;
+      --fg: #e4e2dd;
+      --muted: #9b9a96;
+      --line: #34353a;
+      --rule: #5c5d62;
     }
   }
   * { box-sizing: border-box; }
@@ -50,182 +42,153 @@
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, "Bitstream Charter", Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.65;
     -webkit-text-size-adjust: 100%;
   }
   main, footer { display: block; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 0 1.25rem; }
-  section { padding: 3.5rem 0; }
-  section + section { border-top: 1px solid var(--line); }
+  .wrap { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem; }
 
-  h1, h2 { line-height: 1.15; letter-spacing: -0.015em; }
-  h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin: 0.5rem 0 1rem; }
-  h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 0.75rem; }
-  p.lead { font-size: 1.125rem; color: var(--muted); max-width: 44rem; }
-  a { color: var(--accent); }
-  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.15em;
+    text-decoration-color: var(--rule); }
+  a:hover { text-decoration-color: currentColor; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; }
+  h1, h2, h3 { font-weight: 600; line-height: 1.25; }
 
-  .eyebrow {
-    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent); margin: 0;
-  }
-  .hero { text-align: center; padding-top: 4.5rem; }
-  .hero p.lead { margin: 0 auto 1.75rem; }
-  .cta { display: inline-block; margin: 0.25rem 0.4rem; padding: 0.65rem 1.3rem;
-    border-radius: 999px; text-decoration: none; font-weight: 600; }
-  .cta.primary { background: var(--accent); color: var(--bg); }
-  .cta.ghost { color: var(--accent); border: 1.5px solid var(--accent); }
-  p.credit { font-size: 0.875rem; color: var(--muted); text-align: center;
-    max-width: 40rem; margin: 1.25rem auto 0; }
-  p.status { font-size: 0.875rem; color: var(--muted); text-align: center;
-    max-width: 40rem; margin: 0.75rem auto 0; }
-  p.status a { color: inherit; }
+  /* title block */
+  header.title { padding: 4rem 1.25rem 1rem; }
+  header.title .series { margin: 0; font-size: 0.95rem; color: var(--muted); }
+  header.title h1 { font-size: clamp(2rem, 6vw, 2.6rem); margin: 0.25rem 0 0.5rem; }
+  header.title .subtitle { margin: 0; font-style: italic; color: var(--muted); }
+  blockquote.epigraph { margin: 2rem 0 0 auto; max-width: 26rem; font-style: italic; }
+  blockquote.epigraph p { margin: 0; }
+  blockquote.epigraph footer { font-style: normal; font-size: 0.95rem; color: var(--muted);
+    margin-top: 0.25rem; }
+  header.title .status { margin: 2rem 0 0; font-size: 0.95rem; color: var(--muted); }
 
-  figure { margin: 2.25rem 0 0; }
+  /* figure */
+  figure { margin: 2.5rem 0 0; }
   .diagram-wrap { overflow-x: auto; }
-  .diagram-wrap svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
-  svg.min640 { min-width: 640px; }
-  figcaption { font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem; }
-
-  /* diagram vocabulary, shared with particulars.fyi and intentions.fyi */
-  svg text { fill: var(--fg); font-family: inherit; font-size: 15px; }
-  svg .small { font-size: 12.5px; }
-  svg .lbl { fill: var(--muted); font-size: 13px; }
-  svg .accent-t { fill: var(--accent); font-weight: 600; }
-  svg .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
-  svg .box-accent { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2.5; }
-  svg .box-gap { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
-  svg .edge { stroke: var(--muted); stroke-width: 1.5; fill: none; }
-  svg .edge-dash { stroke-dasharray: 5 5; }
-  svg .divider { stroke: var(--line); stroke-dasharray: 3 6; stroke-width: 1.5; }
-  svg a text { fill: var(--accent); text-decoration: underline; }
+  .diagram-wrap svg { display: block; max-width: 100%; height: auto; }
+  svg.min640 { min-width: 560px; }
+  figcaption { font-size: 0.95rem; color: var(--muted); margin-top: 0.5rem; }
+  svg text { fill: var(--fg); font-family: inherit; font-size: 17px; }
+  svg .small { font-size: 14.5px; }
+  svg .lbl { fill: var(--muted); font-size: 14.5px; font-style: italic; }
+  svg .box { fill: none; stroke: var(--fg); stroke-width: 1; }
+  svg .box-gap { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; }
+  svg .edge { stroke: var(--fg); stroke-width: 1; fill: none; }
+  svg .edge-dash { stroke: var(--muted); stroke-dasharray: 4 4; }
+  svg .divider { stroke: var(--line); stroke-dasharray: 2 5; stroke-width: 1; }
+  svg a text { text-decoration: underline; }
 
   /* contents */
-  nav.contents { padding: 2.5rem 1.25rem; border-top: 1px solid var(--line); }
-  nav.contents h2 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--muted); margin: 0 0 0.75rem; }
-  nav.contents ol { list-style: none; margin: 0; padding: 0;
-    columns: 2 16rem; column-gap: 2.5rem; }
-  nav.contents li { margin: 0 0 0.35rem; break-inside: avoid; }
+  nav.contents { padding: 2rem 1.25rem 0; }
+  nav.contents h2 { font-size: 1.1rem; margin: 0 0 0.5rem; }
+  nav.contents ol { list-style: none; margin: 0; padding: 0; }
+  nav.contents li { margin: 0; padding-left: 1.75rem; text-indent: -1.75rem; }
   nav.contents a { text-decoration: none; }
   nav.contents a:hover { text-decoration: underline; }
   nav.contents .n { display: inline-block; min-width: 1.75rem; color: var(--muted); }
 
   /* the paper */
-  .paper { max-width: 44rem; }
-  .paper section { border-top: 1px solid var(--line); }
-  .paper p, .paper li { font-size: 1.0625rem; line-height: 1.7; }
-  .paper h3 { font-size: 1.2rem; margin: 2.25rem 0 0.5rem; line-height: 1.3; }
+  .paper section { padding: 1.5rem 0 0; }
+  .paper h2 { font-size: 1.45rem; margin: 2rem 0 0.75rem; }
+  .paper h3 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
   .paper ul { padding-left: 1.25rem; }
-  .paper li { margin: 0 0 0.6rem; }
-  .paper code { font-size: 0.9em; background: var(--card); border: 1px solid var(--line);
-    border-radius: 4px; padding: 0 0.25em; }
+  .paper li { margin: 0 0 0.5rem; }
 
   .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
-  .paper table { border-collapse: collapse; width: 100%; min-width: 34rem;
-    font-size: 0.925rem; line-height: 1.5; }
-  .paper th, .paper td { text-align: left; vertical-align: top; padding: 0.55rem 0.75rem;
-    border-bottom: 1px solid var(--line); }
-  .paper th { font-weight: 600; color: var(--muted); border-bottom-width: 2px; }
-  .paper td:first-child { font-weight: 600; }
+  .paper table { border-collapse: collapse; width: 100%; min-width: 32rem;
+    font-size: 0.95rem; line-height: 1.45; }
+  .paper th, .paper td { text-align: left; vertical-align: top; padding: 0.4rem 0.75rem 0.4rem 0; }
+  .paper thead th { font-weight: 600; border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule); }
+  .paper tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
 
-  aside.draft-note { margin: 2rem 0; padding: 0.9rem 1.2rem; border-radius: 0 12px 12px 0;
-    background: var(--challenge-soft); border-left: 3px solid var(--challenge); }
-  aside.draft-note p, aside.draft-note li { font-size: 0.975rem; }
-  aside.draft-note p.label { margin: 0 0 0.25rem; font-size: 0.8rem; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--challenge); }
+  aside.draft-note { margin: 1.75rem 0; padding: 0 0 0 1.25rem;
+    border-left: 1px solid var(--rule); color: var(--muted); font-size: 1rem; }
+  aside.draft-note p.label { margin: 0 0 0.25rem; font-style: italic; }
   aside.draft-note > :last-child { margin-bottom: 0; }
 
   .paper ul.refs { list-style: none; padding: 0; }
-  .paper ul.refs li { font-size: 0.975rem; margin: 0 0 0.5rem; padding-left: 1.5rem;
+  .paper ul.refs li { font-size: 1rem; margin: 0 0 0.4rem; padding-left: 1.5rem;
     text-indent: -1.5rem; }
-  .paper p.formats { font-weight: 600; }
 
-  footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem;
-    font-size: 0.875rem; color: var(--muted); }
-  footer a { color: inherit; }
+  body > footer { margin-top: 3rem; padding: 1.5rem 0 3rem; border-top: 1px solid var(--line);
+    font-size: 0.95rem; color: var(--muted); }
 </style>
 </head>
 <body>
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Forgetting &middot; the reasoning behind particulars and intentions</p>
-      <h1>Remember forward.</h1>
-      <p class="lead">People act best when their attention is on what is in front of them.
-        This paper argues for open formats that hold what a person believes and what
-        they mean to do outside the head, with a record of where each thing came from,
-        so that they can forget it and trust that it is kept.</p>
-      <p>
-        <a class="cta primary" href="#summary">Read the paper</a>
-        <a class="cta ghost" href="https://particulars.fyi">particulars.fyi</a>
-        <a class="cta ghost" href="https://intentions.fyi">intentions.fyi</a>
-      </p>
+  <!-- TITLE -->
+  <header class="title wrap">
+    <p class="series">Forgetting</p>
+    <h1>Remember forward.</h1>
+    <p class="subtitle">Why we externalise memory, what kinds there are, and how
+      particulars and intentions fit together</p>
 
-      <figure>
-        <div class="diagram-wrap">
-        <svg class="min640" viewBox="0 0 820 250" role="img" aria-labelledby="hero-title hero-desc">
-          <title id="hero-title">Four kinds of memory over one spine</title>
-          <desc id="hero-desc">Four kinds of memory. Semantic memory, what is
-            believed, is held by particulars. Prospective memory, what a person
-            means to do, is held by intentions. Episodic memory, what actually
-            happened, is not yet specified. Procedural memory, skills and habits,
-            needs less a format than a way back to the reasons behind them. Beneath
-            all four runs provenance: every object says who wrote it.</desc>
-          <text x="207" y="28" text-anchor="middle" class="lbl" font-weight="600">the formats</text>
-          <text x="612" y="28" text-anchor="middle" class="lbl" font-weight="600">the gaps</text>
-          <line x1="410" y1="18" x2="410" y2="150" class="divider"/>
+    <blockquote class="epigraph">
+      <p>&ldquo;It&rsquo;s a poor sort of memory that only works backwards.&rdquo;</p>
+      <footer>&mdash; the White Queen, in Lewis Carroll&rsquo;s <cite>Through the Looking-Glass</cite></footer>
+    </blockquote>
 
-          <!-- semantic -->
-          <rect x="20" y="46" width="180" height="94" rx="10" class="box-accent"/>
-          <text x="110" y="72" text-anchor="middle" class="lbl">semantic</text>
-          <a href="https://particulars.fyi"><text x="110" y="98" text-anchor="middle" font-weight="600">particulars</text></a>
-          <text x="110" y="122" text-anchor="middle" class="small">what is believed</text>
+    <p class="status">Draft. Started 2026-10-25 from
+      <a href="https://github.com/nodelogicau/particulars/issues/35">particulars#35</a>.
+      Sections marked <em>Draft note</em> are where the argument is still thin or a
+      decision is open. Nothing here is normative: the specifications are
+      particulars (<a href="https://particulars.fyi">particulars.fyi</a>) and
+      intentions (<a href="https://intentions.fyi">intentions.fyi</a>).</p>
 
-          <!-- prospective -->
-          <rect x="215" y="46" width="180" height="94" rx="10" class="box-accent"/>
-          <text x="305" y="72" text-anchor="middle" class="lbl">prospective</text>
-          <a href="https://intentions.fyi"><text x="305" y="98" text-anchor="middle" font-weight="600">intentions</text></a>
-          <text x="305" y="122" text-anchor="middle" class="small">what a person means to do</text>
+    <figure>
+      <div class="diagram-wrap">
+      <svg class="min640" viewBox="0 0 820 250" role="img" aria-labelledby="fig-title fig-desc">
+        <title id="fig-title">Four kinds of memory over one spine</title>
+        <desc id="fig-desc">Four kinds of memory. Semantic memory, what is
+          believed, is held by particulars. Prospective memory, what a person
+          means to do, is held by intentions. Episodic memory, what actually
+          happened, is not yet specified. Procedural memory, skills and habits,
+          needs less a format than a way back to the reasons behind them. Beneath
+          all four runs provenance: every object says who wrote it.</desc>
+        <text x="207" y="28" text-anchor="middle" class="lbl">the formats</text>
+        <text x="612" y="28" text-anchor="middle" class="lbl">the gaps</text>
+        <line x1="410" y1="18" x2="410" y2="150" class="divider"/>
 
-          <!-- episodic -->
-          <rect x="425" y="46" width="180" height="94" rx="10" class="box-gap"/>
-          <text x="515" y="72" text-anchor="middle" class="lbl">episodic</text>
-          <text x="515" y="98" text-anchor="middle" font-weight="600">not yet specified</text>
-          <text x="515" y="122" text-anchor="middle" class="small">what actually happened</text>
+        <rect x="20" y="46" width="180" height="94" rx="4" class="box"/>
+        <text x="110" y="72" text-anchor="middle" class="lbl">semantic</text>
+        <a href="https://particulars.fyi"><text x="110" y="98" text-anchor="middle" font-weight="600">particulars</text></a>
+        <text x="110" y="122" text-anchor="middle" class="small">what is believed</text>
 
-          <!-- procedural -->
-          <rect x="620" y="46" width="180" height="94" rx="10" class="box-gap"/>
-          <text x="710" y="72" text-anchor="middle" class="lbl">procedural</text>
-          <text x="710" y="98" text-anchor="middle" font-weight="600">a way back</text>
-          <text x="710" y="122" text-anchor="middle" class="small">to the reasons for habits</text>
+        <rect x="215" y="46" width="180" height="94" rx="4" class="box"/>
+        <text x="305" y="72" text-anchor="middle" class="lbl">prospective</text>
+        <a href="https://intentions.fyi"><text x="305" y="98" text-anchor="middle" font-weight="600">intentions</text></a>
+        <text x="305" y="122" text-anchor="middle" class="small">what a person means to do</text>
 
-          <!-- the spine -->
-          <line x1="110" y1="140" x2="110" y2="180" class="edge"/>
-          <line x1="305" y1="140" x2="305" y2="180" class="edge"/>
-          <line x1="515" y1="140" x2="515" y2="180" class="edge edge-dash"/>
-          <line x1="710" y1="140" x2="710" y2="180" class="edge edge-dash"/>
-          <rect x="20" y="180" width="780" height="50" rx="10" class="box"/>
-          <text x="410" y="203" text-anchor="middle" class="accent-t">provenance</text>
-          <text x="410" y="221" text-anchor="middle" class="small">every object says who wrote it</text>
-        </svg>
-        </div>
-        <figcaption>Several kinds of memory, not one store. Two are specified; two are the gaps.</figcaption>
-      </figure>
+        <rect x="425" y="46" width="180" height="94" rx="4" class="box-gap"/>
+        <text x="515" y="72" text-anchor="middle" class="lbl">episodic</text>
+        <text x="515" y="98" text-anchor="middle" font-weight="600">not yet specified</text>
+        <text x="515" y="122" text-anchor="middle" class="small">what actually happened</text>
 
-      <p class="credit">&ldquo;It&rsquo;s a poor sort of memory that only works backwards.&rdquo;
-        &mdash; the White Queen, in Lewis Carroll&rsquo;s <cite>Through the Looking-Glass</cite></p>
-      <p class="status">Draft. Started 2026-10-25 from
-        <a href="https://github.com/nodelogicau/particulars/issues/35">particulars#35</a>.
-        Sections marked <em>Draft note</em> are where the argument is still thin or a
-        decision is open. Nothing here is normative: the specifications are
-        <a href="https://github.com/nodelogicau/particulars">particulars</a> and
-        <a href="https://github.com/nodelogicau/intentions">intentions</a>.</p>
-    </div>
-  </section>
+        <rect x="620" y="46" width="180" height="94" rx="4" class="box-gap"/>
+        <text x="710" y="72" text-anchor="middle" class="lbl">procedural</text>
+        <text x="710" y="98" text-anchor="middle" font-weight="600">a way back</text>
+        <text x="710" y="122" text-anchor="middle" class="small">to the reasons for habits</text>
+
+        <line x1="110" y1="140" x2="110" y2="180" class="edge"/>
+        <line x1="305" y1="140" x2="305" y2="180" class="edge"/>
+        <line x1="515" y1="140" x2="515" y2="180" class="edge edge-dash"/>
+        <line x1="710" y1="140" x2="710" y2="180" class="edge edge-dash"/>
+        <rect x="20" y="180" width="780" height="50" rx="4" class="box"/>
+        <text x="410" y="203" text-anchor="middle" font-weight="600">provenance</text>
+        <text x="410" y="221" text-anchor="middle" class="small">every object says who wrote it</text>
+      </svg>
+      </div>
+      <figcaption>Figure 1. Several kinds of memory, not one store. Two are
+        specified; two are the gaps.</figcaption>
+    </figure>
+  </header>
 
   <!-- CONTENTS -->
   <nav class="contents wrap" aria-labelledby="contents-title">
@@ -234,7 +197,7 @@
       <li><a href="#summary"><span class="n"></span>Summary</a></li>
       <li><a href="#why-forget"><span class="n">1</span>Why forget</a></li>
       <li><a href="#memory"><span class="n">2</span>Memory, briefly</a></li>
-      <li><a href="#why-agents-forget"><span class="n">3</span>Why agents forget</a></li>
+      <li><a href="#why-agents-forget"><span class="n">3</span>Why agents forget, and why it matters to the person</a></li>
       <li><a href="#provenance"><span class="n">4</span>The provenance spine</a></li>
       <li><a href="#semantic"><span class="n">5</span>Semantic memory: particulars</a></li>
       <li><a href="#prospective"><span class="n">6</span>Prospective memory: intentions</a></li>

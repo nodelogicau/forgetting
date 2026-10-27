@@ -50,3 +50,11 @@
 - [ ] 6.3 DNS: four apex `A` records (DNS-only) and `www` CNAME; wait for the certificate; enforce HTTPS
 - [x] 6.4 Note the follow-up in particulars and intentions: point README links (and optionally each site) at forgetting.fyi
 - [ ] 6.5 Archive the change with sync so `paper-site` lands in the main specs
+
+## 7. Restyle as a paper
+
+- [x] 7.1 Replace the hero (eyebrow, display headline, lead, pill CTAs) with a title block: series line, title, subtitle, Carroll epigraph, status paragraph linking the sibling sites
+- [x] 7.2 Neutral palette only (background, text, muted, rule) in both schemes; links in text colour, underlined
+- [x] 7.3 Serif system stack, one left-aligned ~40rem column, section breaks by spacing
+- [x] 7.4 Figure 1 in thin monochrome lines; draft notes as muted text behind a thin rule; tables with booktabs-style rules
+- [x] 7.5 Re-check: no script or external request, every anchor resolves, light, dark and phone widths render, figure fits the column

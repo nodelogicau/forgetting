@@ -4,11 +4,11 @@ The whitepaper is the reasoning behind particulars and intentions, and both form
 
 ## What Changes
 
-- A site at **forgetting.fyi**, served by GitHub Pages from `docs/` on `main`, built the same way as particulars.fyi and intentions.fyi: one hand-written `docs/index.html`, no build step, no JavaScript, no request to any other origin, inline SVG themed through CSS custom properties for light and dark.
+- A site at **forgetting.fyi**, served by GitHub Pages from `docs/` on `main`, built under the same constraints as particulars.fyi and intentions.fyi: one hand-written `docs/index.html`, no build step, no JavaScript, no request to any other origin, inline SVG themed through CSS custom properties for light and dark.
 - **The page is the whitepaper.** Unlike the sibling sites, it is not an introduction pointing elsewhere. The full text moves into `docs/index.html` and is edited there from then on. There is no second copy to keep in step.
 - **BREAKING:** `whitepaper.md` is reduced to a stub saying the paper has moved to forgetting.fyi. Existing links to it still resolve to something useful.
-- Hero: the eyebrow "Forgetting · the reasoning behind particulars and intentions", the headline **"Remember forward."**, a lead drawn from the Summary, a primary call to action into the paper, and secondary links to particulars.fyi and intentions.fyi. Beneath it is a diagram of the four kinds of memory over the provenance spine, then a muted credit to Lewis Carroll's White Queen ("It's a poor sort of memory that only works backwards"), who is now listed in the References.
-- After the hero comes a contents list, then the paper from Summary to References, with stable section ids that other sites can deep-link to.
+- A title block, set as a paper and not as a product page: the series name "Forgetting", the title **"Remember forward."**, the paper's subtitle, an epigraph from Lewis Carroll's White Queen ("It's a poor sort of memory that only works backwards"), who is now listed in the References, and a status paragraph linking particulars.fyi and intentions.fyi. Under it is a monochrome figure of the four kinds of memory over the provenance spine.
+- After the title block comes a contents list, then the paper from Summary to References, with stable section ids that other sites can deep-link to. Typography is a serif column with no accent colour, so the format adds nothing on top of the text.
 - *Draft notes* stay visible, styled as open questions so a reader can tell argument from unsettled argument.
 - `docs/CNAME` carrying `forgetting.fyi`, and `docs/README.md` carrying the Pages settings, DNS records and editing conventions.
 - `README.md` points at forgetting.fyi in place of `whitepaper.md`.
@@ -18,7 +18,7 @@ The whitepaper is the reasoning behind particulars and intentions, and both form
 
 ### New Capabilities
 
-- `paper-site`: what forgetting.fyi is built from and what it asserts. It covers a single static file with no build, script or external request, both colour schemes, the page being the sole copy of the whitepaper, the hero with its headline, credit and memory-kinds diagram, the contents list and stable section ids, visible draft notes, the rule that claims about a format agree with that format's README, a footer licence statement that agrees with the repository, and a README pointing at the site. It is named `paper-site` rather than the siblings' `landing-site` because the page is the document, not a way into one.
+- `paper-site`: what forgetting.fyi is built from and what it asserts. It covers a single static file with no build, script or external request, both colour schemes, the page being the sole copy of the whitepaper, the title block with its epigraph and memory-kinds figure, typography that serves reading, the contents list and stable section ids, visible draft notes, the rule that claims about a format agree with that format's README, a footer licence statement that agrees with the repository, and a README pointing at the site. It is named `paper-site` rather than the siblings' `landing-site` because the page is the document, not a way into one.
 
 ### Modified Capabilities
 
