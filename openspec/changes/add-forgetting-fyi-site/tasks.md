@@ -45,7 +45,7 @@
 
 ## 6. Deploy and close out
 
-- [ ] 6.1 Commit `docs/`, the stub and the README edit together; push
+- [x] 6.1 Commit `docs/`, the stub and the README edit together; push
 - [ ] 6.2 Pages settings: deploy from `main`, folder `/docs`; confirm the `github.io` address serves the page
 - [ ] 6.3 DNS: four apex `A` records (DNS-only) and `www` CNAME; wait for the certificate; enforce HTTPS
 - [x] 6.4 Note the follow-up in particulars and intentions: point README links (and optionally each site) at forgetting.fyi
