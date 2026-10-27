@@ -54,7 +54,7 @@ The paper's own title block (title, subtitle, the Draft blockquote) becomes the 
 
 **A paper, not a pitch.** The first build reused the sibling landing pages' hero: uppercase accent eyebrow, centred display headline, pill buttons, a tinted plum palette, amber draft-note callouts and rules between sections. On a long essay that read as a product pitch and pulled attention away from the text, so it was dropped. The page is set as a paper instead:
 - a serif system stack (Iowan Old Style, Palatino, Charter, Georgia), with no web font;
-- one left-aligned column of about 40rem;
+- one left-aligned column of about 46rem, about 75–80 characters to a line;
 - no accent colour: the palette is background, text, muted text and rule, in both schemes;
 - links in the text colour, underlined with a light rule;
 - no buttons, and the sibling sites linked in running text;

@@ -59,7 +59,7 @@ The page SHALL open with a title block, not a product hero: the series name "For
 - **THEN** the browser lands on that format's site
 
 ### Requirement: The typography serves reading, not promotion
-The page SHALL be set as a paper: a serif system font stack, one left-aligned text column of about 40rem, links in the text colour and underlined, and no accent colour. Colour SHALL be limited to the text, muted-text, rule and background tokens. Draft notes, tables and the figure SHALL be distinguished by rules, italics and weight, not by fills or hues.
+The page SHALL be set as a paper: a serif system font stack, one left-aligned text column of about 46rem, links in the text colour and underlined, and no accent colour. Colour SHALL be limited to the text, muted-text, rule and background tokens. Draft notes, tables and the figure SHALL be distinguished by rules, italics and weight, not by fills or hues.
 
 #### Scenario: A reviewer checks the palette
 - **WHEN** the `:root` custom properties are read
