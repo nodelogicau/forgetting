@@ -9,7 +9,8 @@ formats hold what a person believes and what they mean to do outside the
 head, with a record of where each thing came from, so that they can forget it
 and trust that it is kept.
 
-**[Read the whitepaper](whitepaper.md)** (draft).
+**[Read the whitepaper at forgetting.fyi](https://forgetting.fyi)** (draft).
+Its source is [`docs/index.html`](docs/index.html).
 
 This repository belongs to neither format. It holds the argument they share.
 The specifications themselves stay in their own repositories, and nothing here

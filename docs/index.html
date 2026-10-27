@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forgetting</title>
+<meta name="description" content="Forgetting — why we externalise memory, what kinds there are, and how particulars and intentions fit together. The reasoning behind both formats.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%238a3d7a' stroke-width='4'/%3E%3Cpath d='M13 9 L20 16 L13 23' fill='none' stroke='%238a3d7a' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<!--
+  This file is the whitepaper. There is no other copy: whitepaper.md is a
+  stub pointing here, and its git history holds the paper up to the move.
+  Edit the prose in place.
+
+  Prose is one block element per paragraph, wrapped near 78 columns, with no
+  inline styles, so that a one-word fix diffs as one or two lines. Section
+  ids are a public interface for deep links; they are listed in
+  docs/README.md and do not change when a heading is reworded.
+
+  Nothing here is normative. Anything the paper says about what particulars
+  or intentions does must agree with that format's README on main.
+-->
+<style>
+  :root {
+    --bg: #faf9f7;
+    --fg: #1f2430;
+    --muted: #5b6270;
+    --line: #d8d5cf;
+    --card: #ffffff;
+    --accent: #8a3d7a;
+    --accent-soft: #f5e8f1;
+    --challenge: #b45309;
+    --challenge-soft: #fbeedd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151c;
+      --fg: #e8e6e1;
+      --muted: #a0a7b3;
+      --line: #2c313d;
+      --card: #1a1e27;
+      --accent: #e3a1d4;
+      --accent-soft: #35223a;
+      --challenge: #f0a04b;
+      --challenge-soft: #2f2619;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+  main, footer { display: block; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 1.25rem; }
+  section { padding: 3.5rem 0; }
+  section + section { border-top: 1px solid var(--line); }
+
+  h1, h2 { line-height: 1.15; letter-spacing: -0.015em; }
+  h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin: 0.5rem 0 1rem; }
+  h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 0.75rem; }
+  p.lead { font-size: 1.125rem; color: var(--muted); max-width: 44rem; }
+  a { color: var(--accent); }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+  .eyebrow {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin: 0;
+  }
+  .hero { text-align: center; padding-top: 4.5rem; }
+  .hero p.lead { margin: 0 auto 1.75rem; }
+  .cta { display: inline-block; margin: 0.25rem 0.4rem; padding: 0.65rem 1.3rem;
+    border-radius: 999px; text-decoration: none; font-weight: 600; }
+  .cta.primary { background: var(--accent); color: var(--bg); }
+  .cta.ghost { color: var(--accent); border: 1.5px solid var(--accent); }
+  p.credit { font-size: 0.875rem; color: var(--muted); text-align: center;
+    max-width: 40rem; margin: 1.25rem auto 0; }
+  p.status { font-size: 0.875rem; color: var(--muted); text-align: center;
+    max-width: 40rem; margin: 0.75rem auto 0; }
+  p.status a { color: inherit; }
+
+  figure { margin: 2.25rem 0 0; }
+  .diagram-wrap { overflow-x: auto; }
+  .diagram-wrap svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  svg.min640 { min-width: 640px; }
+  figcaption { font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem; }
+
+  /* diagram vocabulary, shared with particulars.fyi and intentions.fyi */
+  svg text { fill: var(--fg); font-family: inherit; font-size: 15px; }
+  svg .small { font-size: 12.5px; }
+  svg .lbl { fill: var(--muted); font-size: 13px; }
+  svg .accent-t { fill: var(--accent); font-weight: 600; }
+  svg .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+  svg .box-accent { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2.5; }
+  svg .box-gap { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  svg .edge { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+  svg .edge-dash { stroke-dasharray: 5 5; }
+  svg .divider { stroke: var(--line); stroke-dasharray: 3 6; stroke-width: 1.5; }
+  svg a text { fill: var(--accent); text-decoration: underline; }
+
+  /* contents */
+  nav.contents { padding: 2.5rem 1.25rem; border-top: 1px solid var(--line); }
+  nav.contents h2 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 0.75rem; }
+  nav.contents ol { list-style: none; margin: 0; padding: 0;
+    columns: 2 16rem; column-gap: 2.5rem; }
+  nav.contents li { margin: 0 0 0.35rem; break-inside: avoid; }
+  nav.contents a { text-decoration: none; }
+  nav.contents a:hover { text-decoration: underline; }
+  nav.contents .n { display: inline-block; min-width: 1.75rem; color: var(--muted); }
+
+  /* the paper */
+  .paper { max-width: 44rem; }
+  .paper section { border-top: 1px solid var(--line); }
+  .paper p, .paper li { font-size: 1.0625rem; line-height: 1.7; }
+  .paper h3 { font-size: 1.2rem; margin: 2.25rem 0 0.5rem; line-height: 1.3; }
+  .paper ul { padding-left: 1.25rem; }
+  .paper li { margin: 0 0 0.6rem; }
+  .paper code { font-size: 0.9em; background: var(--card); border: 1px solid var(--line);
+    border-radius: 4px; padding: 0 0.25em; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  .paper table { border-collapse: collapse; width: 100%; min-width: 34rem;
+    font-size: 0.925rem; line-height: 1.5; }
+  .paper th, .paper td { text-align: left; vertical-align: top; padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--line); }
+  .paper th { font-weight: 600; color: var(--muted); border-bottom-width: 2px; }
+  .paper td:first-child { font-weight: 600; }
+
+  aside.draft-note { margin: 2rem 0; padding: 0.9rem 1.2rem; border-radius: 0 12px 12px 0;
+    background: var(--challenge-soft); border-left: 3px solid var(--challenge); }
+  aside.draft-note p, aside.draft-note li { font-size: 0.975rem; }
+  aside.draft-note p.label { margin: 0 0 0.25rem; font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--challenge); }
+  aside.draft-note > :last-child { margin-bottom: 0; }
+
+  .paper ul.refs { list-style: none; padding: 0; }
+  .paper ul.refs li { font-size: 0.975rem; margin: 0 0 0.5rem; padding-left: 1.5rem;
+    text-indent: -1.5rem; }
+  .paper p.formats { font-weight: 600; }
+
+  footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem;
+    font-size: 0.875rem; color: var(--muted); }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Forgetting &middot; the reasoning behind particulars and intentions</p>
+      <h1>Remember forward.</h1>
+      <p class="lead">People act best when their attention is on what is in front of them.
+        This paper argues for open formats that hold what a person believes and what
+        they mean to do outside the head, with a record of where each thing came from,
+        so that they can forget it and trust that it is kept.</p>
+      <p>
+        <a class="cta primary" href="#summary">Read the paper</a>
+        <a class="cta ghost" href="https://particulars.fyi">particulars.fyi</a>
+        <a class="cta ghost" href="https://intentions.fyi">intentions.fyi</a>
+      </p>
+
+      <figure>
+        <div class="diagram-wrap">
+        <svg class="min640" viewBox="0 0 820 250" role="img" aria-labelledby="hero-title hero-desc">
+          <title id="hero-title">Four kinds of memory over one spine</title>
+          <desc id="hero-desc">Four kinds of memory. Semantic memory, what is
+            believed, is held by particulars. Prospective memory, what a person
+            means to do, is held by intentions. Episodic memory, what actually
+            happened, is not yet specified. Procedural memory, skills and habits,
+            needs less a format than a way back to the reasons behind them. Beneath
+            all four runs provenance: every object says who wrote it.</desc>
+          <text x="207" y="28" text-anchor="middle" class="lbl" font-weight="600">the formats</text>
+          <text x="612" y="28" text-anchor="middle" class="lbl" font-weight="600">the gaps</text>
+          <line x1="410" y1="18" x2="410" y2="150" class="divider"/>
+
+          <!-- semantic -->
+          <rect x="20" y="46" width="180" height="94" rx="10" class="box-accent"/>
+          <text x="110" y="72" text-anchor="middle" class="lbl">semantic</text>
+          <a href="https://particulars.fyi"><text x="110" y="98" text-anchor="middle" font-weight="600">particulars</text></a>
+          <text x="110" y="122" text-anchor="middle" class="small">what is believed</text>
+
+          <!-- prospective -->
+          <rect x="215" y="46" width="180" height="94" rx="10" class="box-accent"/>
+          <text x="305" y="72" text-anchor="middle" class="lbl">prospective</text>
+          <a href="https://intentions.fyi"><text x="305" y="98" text-anchor="middle" font-weight="600">intentions</text></a>
+          <text x="305" y="122" text-anchor="middle" class="small">what a person means to do</text>
+
+          <!-- episodic -->
+          <rect x="425" y="46" width="180" height="94" rx="10" class="box-gap"/>
+          <text x="515" y="72" text-anchor="middle" class="lbl">episodic</text>
+          <text x="515" y="98" text-anchor="middle" font-weight="600">not yet specified</text>
+          <text x="515" y="122" text-anchor="middle" class="small">what actually happened</text>
+
+          <!-- procedural -->
+          <rect x="620" y="46" width="180" height="94" rx="10" class="box-gap"/>
+          <text x="710" y="72" text-anchor="middle" class="lbl">procedural</text>
+          <text x="710" y="98" text-anchor="middle" font-weight="600">a way back</text>
+          <text x="710" y="122" text-anchor="middle" class="small">to the reasons for habits</text>
+
+          <!-- the spine -->
+          <line x1="110" y1="140" x2="110" y2="180" class="edge"/>
+          <line x1="305" y1="140" x2="305" y2="180" class="edge"/>
+          <line x1="515" y1="140" x2="515" y2="180" class="edge edge-dash"/>
+          <line x1="710" y1="140" x2="710" y2="180" class="edge edge-dash"/>
+          <rect x="20" y="180" width="780" height="50" rx="10" class="box"/>
+          <text x="410" y="203" text-anchor="middle" class="accent-t">provenance</text>
+          <text x="410" y="221" text-anchor="middle" class="small">every object says who wrote it</text>
+        </svg>
+        </div>
+        <figcaption>Several kinds of memory, not one store. Two are specified; two are the gaps.</figcaption>
+      </figure>
+
+      <p class="credit">&ldquo;It&rsquo;s a poor sort of memory that only works backwards.&rdquo;
+        &mdash; the White Queen, in Lewis Carroll&rsquo;s <cite>Through the Looking-Glass</cite></p>
+      <p class="status">Draft. Started 2026-10-25 from
+        <a href="https://github.com/nodelogicau/particulars/issues/35">particulars#35</a>.
+        Sections marked <em>Draft note</em> are where the argument is still thin or a
+        decision is open. Nothing here is normative: the specifications are
+        <a href="https://github.com/nodelogicau/particulars">particulars</a> and
+        <a href="https://github.com/nodelogicau/intentions">intentions</a>.</p>
+    </div>
+  </section>
+
+  <!-- CONTENTS -->
+  <nav class="contents wrap" aria-labelledby="contents-title">
+    <h2 id="contents-title">Contents</h2>
+    <ol>
+      <li><a href="#summary"><span class="n"></span>Summary</a></li>
+      <li><a href="#why-forget"><span class="n">1</span>Why forget</a></li>
+      <li><a href="#memory"><span class="n">2</span>Memory, briefly</a></li>
+      <li><a href="#why-agents-forget"><span class="n">3</span>Why agents forget</a></li>
+      <li><a href="#provenance"><span class="n">4</span>The provenance spine</a></li>
+      <li><a href="#semantic"><span class="n">5</span>Semantic memory: particulars</a></li>
+      <li><a href="#prospective"><span class="n">6</span>Prospective memory: intentions</a></li>
+      <li><a href="#how-they-meet"><span class="n">7</span>How they meet</a></li>
+      <li><a href="#gaps"><span class="n">8</span>The gaps</a></li>
+      <li><a href="#measuring"><span class="n">9</span>Measuring it</a></li>
+      <li><a href="#open-questions"><span class="n">10</span>Open questions</a></li>
+      <li><a href="#references"><span class="n"></span>References</a></li>
+    </ol>
+  </nav>
+
+  <!-- THE PAPER -->
+  <article class="paper wrap">
+
+<section id="summary">
+<h2>Summary</h2>
+<p>People act best when their attention is on what is in front of them. What
+they believe, what they want, and what they have promised compete with that
+for as long as they’re held in the head. This paper argues for a family of
+open formats that hold those things outside the head, so that a person can
+forget them and trust that they are kept.</p>
+<p>Forgetting is only safe if the store remembers more than the head would have.
+In particular it has to remember where each thing came from. That is the
+property every format in the family shares, and the reason they keep
+provenance when other memory systems don’t.</p>
+<p>The family models memory as several kinds rather than one store, because each
+kind is externalised for a different reason, changes in a different way, and
+needs the person’s attention again for a different reason. particulars holds
+semantic memory: what is believed about things in the world. intentions holds
+prospective memory: what a person means to do, and why. Episodic and
+procedural memory are not yet specified. The paper ends with what episodic
+memory would need, and argues that for people procedural memory needs less a
+format than a way back to the reasons behind their habits.</p>
+</section>
+
+<section id="why-forget">
+<h2>1. Why forget</h2>
+<h3 id="overthinker">The overthinker</h3>
+<p>Dostoevsky’s underground man can’t act. Every reason he finds for acting
+draws another, more primary reason after it: “Where are the primary causes on
+which I am to build? Where are my foundations?” The regress has no floor, and
+the result of so much consciousness, he says, is inertia. The man of action,
+by contrast, simply stops at the nearest cause and takes it for a foundation.
+He is calm because he doesn’t look closely.</p>
+<p>Neither is a good model of a person living well. One examines everything and
+does nothing. The other acts, but on foundations he never chose and couldn’t
+defend.</p>
+<h3 id="active-forgetting">Active forgetting</h3>
+<p>Nietzsche’s answer is that forgetting is not a failure of memory but a power
+in its own right: “there could be no happiness, no cheerfulness, no hope, no pride, no
+present, without forgetfulness” (<em>Genealogy of Morals</em>, II §1, tr. Kaufmann).
+In the earlier essay “On the Uses and Disadvantages of History for Life”, the
+herd grazing “unhistorically” is content, and a person who can’t stop
+carrying the past is paralysed by it. To act, something has to be let go of.</p>
+<p>Nietzsche meant digestion: experience absorbed so completely it no longer
+needs recalling. This paper borrows the phrase for something more literal.
+A person can let a belief or a plan go <em>if it is kept somewhere else</em>. The
+regress stops not because the person stopped looking, as the man of action
+did, but because the foundations are written down, chosen, and open to
+inspection whenever they’re needed. Then they’re not needed most of the time.</p>
+<p>Nietzsche frees the present from the past. Camus asks the same of the
+future: “Real generosity toward the future lies in giving all to the
+present” (<em>The Rebel</em>, “Thought at the Meridian”). That can sound like a case
+against planning, but it is the case for keeping plans somewhere else. A
+person can give everything to the present only if the future they mean to
+build is held for them, and comes back when it needs them.</p>
+<h3 id="ready-to-hand">The ready-to-hand</h3>
+<p>Heidegger gives the shape of what forgetting buys. Equipment that works is
+<em>ready-to-hand</em>: it withdraws into the activity, and you attend to the work,
+not the hammer (<em>Being and Time</em>, §15). Only when it breaks down does it come
+back into view (§16). It is then <em>un-ready-to-hand</em>: still part of the work,
+but in the way of it. Only when we step back from the work altogether does it
+become <em>present-at-hand</em>, a detached object to stare at and theorise about.</p>
+<p>Beliefs and intentions held in the head never fully withdraw. Zeigarnik found
+that interrupted tasks are remembered better than finished ones: an unfinished
+goal stays active in the mind (Zeigarnik 1927). Masicampo and Baumeister showed
+what that costs. An unfinished goal intrudes on unrelated tasks, and making a
+specific plan for it stops the intrusion, even though the goal is still
+unfinished (Masicampo and Baumeister 2011). Kept outside the head and
+trusted, they can behave like equipment: absent while things go well, back in
+view the moment something goes wrong.</p>
+<p>Heidegger names three ways equipment comes back into view, and each has an
+analogue here. A fourth, which he doesn’t name, matters once habits are
+counted:</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Breakdown</th><th>Equipment</th><th>Externalised memory</th></tr>
+</thead>
+<tbody>
+<tr><td>Conspicuous</td><td>The tool is broken</td><td>A belief is contradicted</td></tr>
+<tr><td>Obtrusive</td><td>The tool is missing</td><td>Recall finds nothing about something that matters</td></tr>
+<tr><td>Obstinate</td><td>Something is in the way</td><td>Something stands in the way of a plan: a clashing commitment, or a changed belief the plan rested on</td></tr>
+<tr><td>Outlived</td><td>The tool still works, for a job no longer being done</td><td>A habit outlives its reason</td></tr>
+</tbody>
+</table>
+</div>
+<p>Obstinacy is always relative to a plan. Nothing is in the way in itself, only
+in the way of something the person means to do, which is why the third row
+belongs to intentions while the first two belong to particulars.</p>
+<p>The fourth row is different in kind. In the first three, something obtrudes
+while the person is working. An outlived habit never does: it no longer
+consults its goal, so it carries on smoothly after the goal has changed, and
+it is the person who is last to notice. It shows only when someone steps
+back and asks why they still do it (<a href="#gaps">section 8</a>).</p>
+<p>The design rule that follows is that the formats should be quiet until a
+breakdown and loud at one. Most of the machinery in both specifications is
+about knowing when that moment has come. The fourth row adds a second rule:
+because one kind of breakdown never announces itself, the formats also have
+to give the person occasions to reflect, and keep the reasons that reflection
+needs.</p>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>The table is a proposal. Before it stays, check it against
+§16 and settle the following.</p>
+<ul>
+<li><strong>The rows against the text.</strong> Heidegger’s three modes, as usually read:
+<em>conspicuousness</em> (<em>Auffälligkeit</em>), equipment found damaged or unusable
+when we reach for it; <em>obtrusiveness</em> (<em>Aufdringlichkeit</em>), something we
+need that is missing, and more obtrusive the more urgently it is needed;
+<em>obstinacy</em> (<em>Aufsässigkeit</em>), something neither broken nor missing that
+stands in the way and has to be dealt with before work can go on.
+Contradiction as conspicuous and a gap in recall as obtrusive look sound.
+Obstinacy was the loosest fit, because both a clashing commitment and a
+changed belief about a plan’s subject could be called “in the way”.
+Settled: obstinacy is about the plan. A thing is obstinate only in
+relation to what it obstructs, whatever its source, which also matches
+Heidegger, for whom obstinacy is relative to the work in hand. A changed
+belief on its own is particulars’ business; it becomes obstinate only
+when it stands in the way of an intention (<a href="#how-they-meet">section 7</a>).</li>
+<li><strong>Un-ready-to-hand, not present-at-hand.</strong> In §16 broken equipment is
+<em>un-ready-to-hand</em> (<em>unzuhanden</em>): it obtrudes, but still within the work
+and its purpose. It is not yet the detached object of theory. Summaries
+often say breakdown makes a thing present-at-hand; the text above now
+keeps the two apart, and later sections should too. The distinction
+matters for design.
+What a harness should produce is un-readiness: the item, shown with what
+it was for, so the person can repair it and go back to the work. It
+should not invite them to theorise about it.</li>
+<li><strong>Breakdown lights up the context.</strong> Heidegger’s point in §16 is that
+breakdown makes the referential whole visible: the in-order-to that the
+broken thing belonged to. intentions’ serves graph is that whole, made
+explicit. When something surfaces, the chain it serves should surface
+with it. That may be the strongest argument for the table; <a href="#prospective">section 6</a>
+now makes it, under <em>What surfaces with a breakdown</em>.</li>
+<li><strong>When breakdown happens.</strong> Settled: on arrival. Heidegger’s breakdowns
+happen during use, and waiting for use would be closer to the text and
+cheaper in attention. But a store is read by harnesses and people its
+writer can’t know about, so <a href="#semantic">section 5</a> now says why consistency is kept
+when a claim is written rather than left to whoever reads it. Arrival is
+where the harness reconciles; it is not necessarily where the person is
+interrupted.</li>
+<li><strong>Rows the table leaves out.</strong> Settled: a habit outliving its reason is
+the fourth row, <em>outlived</em>. It is not one of Heidegger’s modes, and the
+text says so; check that the equipment analogue (a tool still used for a
+job no longer being done) holds up, and whether there is a better name.
+Procedures that stop working are plainly conspicuous, but those are a
+harness’s procedures. Desires never break down, because nothing is
+checked against them. That fits: a desire is not yet equipment, only a
+want waiting to be taken up. Episodes don’t break down either; they are
+where reflection happens.</li>
+<li><strong>Prior art.</strong> Winograd and Flores (<em>Understanding Computers and
+Cognition</em>, 1986) made breakdown a principle of software design.
+Dreyfus’s commentary (<em>Being-in-the-World</em>, 1991) is the standard reading
+of §§15–16, and Dourish (<em>Where the Action Is</em>, 2001) carries the idea
+into interaction design. Cite them, and say what is new here: the thing
+that breaks down is a person’s own beliefs and plans, not a tool.</li>
+</ul>
+</aside>
+<h3 id="becoming">Becoming who you are</h3>
+<p>Letting go of what you hold is half of it. The other half is that what you
+hold can be examined. Frankfurt describes a person as someone who can want to
+want something: who has desires about their desires and can ask whether the
+wants that move them are ones they endorse (Frankfurt 1971). That is the
+shape of “becoming a better self”, and it needs the wants to be visible. You
+can’t easily examine a belief you can’t see, or test a desire you have never
+written down.</p>
+<p>Nietzsche’s subtitle to <em>Ecce Homo</em> is “how one becomes what one is”. The
+intentions format takes that literally. Every intention is to say what it is
+for (an unserved intention is a warning under <code>intentions/0.1</code> and a refusal
+from <code>0.2</code>), and the chain of reasons ends in a <em>terminus</em>: a standing
+self-understanding, titled as a person rather than a task, such as <em>being
+someone who follows through</em>. That is the format’s answer to the underground
+man: the regress ends at a foundation the person has chosen and written down.</p>
+<h3 id="what-the-store-needs">What this asks of the store</h3>
+<p>If a person is going to forget something on the strength of a store, the
+store has to be trustworthy in a specific way. Clark and Chalmers, arguing
+that a notebook can be part of a mind, set three conditions for when an
+external store counts: it is reliably available, readily used, and trusted
+when it is consulted (Clark and Chalmers 1998). They offer a fourth more
+tentatively: that what is in the store was consciously endorsed at some point
+in the past. Each reads as a requirement on a harness. This paper takes the
+tentative fourth as firm, because it is the one most agent memory fails: a
+store that doesn’t record who wrote what can’t show that anything in it was
+ever endorsed. That is the subject of <a href="#provenance">section 4</a>.</p>
+</section>
+
+<section id="memory">
+<h2>2. Memory, briefly</h2>
+<p>Psychology distinguishes kinds of memory that behave differently, and the
+distinctions turn out to matter for design.</p>
+<ul>
+<li><strong>Retrospective and prospective.</strong> Retrospective memory is of what has
+been. Prospective memory is remembering to do something in the future
+(Einstein and McDaniel 1990). Most memory research, and almost all agent
+memory, is retrospective.</li>
+<li><strong>Episodic and semantic.</strong> Episodic memory is of events, located in time
+and place: <em>the certificate was renewed on Tuesday</em>. Semantic memory is of
+facts, detached from when they were learned: <em>the certificate expires in
+March</em> (Tulving 1972).</li>
+<li><strong>Declarative and procedural.</strong> Episodic and semantic memory are both
+<em>knowing that</em>. Procedural memory is <em>knowing how</em>: skills and habits,
+exercised rather than recalled (Cohen and Squire 1980).</li>
+<li><strong>Source monitoring.</strong> Remembering <em>where</em> something was learned is a
+separate process from remembering the thing, and it fails separately.
+People routinely retain a fact while losing its source, and misattribute
+sources in systematic ways (Johnson, Hashtroudi and Lindsay 1993). In its
+extreme form this is <em>source amnesia</em> (Schacter, Harbluk and McLachlan
+1984).</li>
+</ul>
+<p>The point for design is that each kind changes differently:</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Memory</th><th>Lets the person stop holding…</th><th>Changes by</th><th>Needs attention when</th></tr>
+</thead>
+<tbody>
+<tr><td>Semantic</td><td>what they believe, and why</td><td>reconciliation</td><td>contradicted</td></tr>
+<tr><td>Prospective</td><td>what they want and have committed to</td><td>resolution or retirement</td><td>due, blocked, or undermined by a changed belief</td></tr>
+<tr><td>Episodic</td><td>what actually happened</td><td>accumulation only</td><td>reflecting: did I act as I meant to?</td></tr>
+<tr><td>Procedural</td><td>why they do what they do by habit, and how to do the rare things</td><td>practice and replacement</td><td>a habit outlives its reason, or a rare procedure is due again</td></tr>
+</tbody>
+</table>
+</div>
+<p>You don’t reconcile a past event, only beliefs about it. You don’t contradict
+a plan, you retire it. A store that treats all four the same will get at
+least three of them wrong. That’s why the family is several formats.</p>
+</section>
+
+<section id="why-agents-forget">
+<h2>3. Why agents forget, and why it matters to the person</h2>
+<p>AI assistants are now where many people capture and reason over what they
+know and mean to do. Their memory fails in three ways.</p>
+<p><strong>It is siloed.</strong> What one harness learns is invisible to another, and to the
+person outside it. There is no equivalent of <code>.ics</code> for beliefs or plans.</p>
+<p><strong>It has no provenance.</strong> Agent memory typically stores the content and loses
+the source: source amnesia, by design. A belief whose source is gone can only
+be overwritten, not weighed. And because an assistant writes much of what it
+remembers, the person can’t tell which beliefs are theirs, which they were
+told, and which the assistant inferred.</p>
+<p><strong>It treats contradiction as overwrite.</strong> When new information conflicts with
+old, the old is replaced. The fact that a belief changed, why, and on whose
+word, is lost, and with it the ability to notice that the source of the
+change was wrong.</p>
+<p>For the agent these are accuracy problems. For the person they are the
+reason they can’t let go. A store that might silently replace a belief, or
+can’t say where one came from, has to be checked, and a store that has to be
+checked never withdraws. It is always in the way, and it costs the attention
+it was meant to free.</p>
+</section>
+
+<section id="provenance">
+<h2>4. The provenance spine</h2>
+<p>Every format in the family shares a small set of conventions. Together they
+are what make forgetting safe.</p>
+<ul>
+<li><strong>Every object says who wrote it.</strong> A <code>source</code> names the person, the
+harness, and the model, as applicable. An agent acting alone is a valid
+source, and so is a person working without one; a source naming neither is
+malformed.</li>
+<li><strong>Authors are URIs.</strong> The person who asserted something is a particular in
+their own right, and can be reasoned about: whether their claims tend to
+hold up, which other claims came from them.</li>
+<li><strong>Ids are prefixed UUIDv7.</strong> Time-ordered, so a directory listing is a
+chronology, and typed by prefix, so an id says what it points at.</li>
+<li><strong>Files over databases.</strong> YAML files in git. History, authorship and review
+come from git; an index is a cache of the files, never the reverse.</li>
+<li><strong>History is kept.</strong> In particulars nothing is overwritten: a claim is
+retracted by appending a record, and belief changes only by synthesis. In
+intentions, objects are live state and are edited in place, but the events
+that happen to them are appended and never rewritten.</li>
+</ul>
+<p>Provenance does two jobs. It lets an agent weigh conflicting information
+instead of overwriting it, which is what particulars’ dialectic is built on.
+And it lets the person forget without abdicating: a belief can be put down
+because it can always be picked up again with its reasons attached.</p>
+<p>It matters most when an agent does the writing. intentions puts this sharply:
+a harness may draft, but it may not make an intention firm, select a
+placement, or accept a commitment without the person’s act or a policy they
+hold. Authorship is what distinguishes a person’s own resolve from an
+accumulation of other people’s claims on their time. The same holds for
+belief. A belief an assistant inferred shouldn’t quietly become the person’s.</p>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>intentions copies these conventions from particulars by
+agreement. Whether they should become a spec of their own is open
+(<a href="#open-questions">section 10</a>).</p>
+</aside>
+</section>
+
+<section id="semantic">
+<h2>5. Semantic memory: particulars</h2>
+<p>particulars, the Dialectical Knowledge Format (DKF), holds what is believed
+about things in the world. Its objects are <strong>particulars</strong> (the things),
+<strong>claims</strong> (assertions about them, each with a source and what backs it), and
+<strong>syntheses</strong> (reconciliations of claims into a current belief, citing their
+inputs).</p>
+<p>Because claims keep their sources, a contradiction is evidence on both sides
+rather than an error. The format takes its structure from dialectic: a claim
+is met by a contrary claim, and a synthesis reconciles them, carrying the
+reasoning. The synthesis becomes the new current belief, open to being
+contradicted in turn.</p>
+<p>What is computable without a model in the loop is what has <em>not</em> been
+reconciled: claims newer than the current belief, and syntheses resting on
+retracted inputs. That is exactly the conspicuous breakdown of <a href="#why-forget">section 1</a>. A
+well-behaved harness says nothing about a particular whose belief is settled,
+and surfaces it when something new arrives that the current belief doesn’t
+account for.</p>
+<p>It surfaces it then, on arrival, and not later when the belief is next used.
+Heidegger’s breakdowns happen in use, when we reach for the tool, and waiting
+for use would spend less attention. But a store that outlives a conversation
+is read by people and harnesses its writer can’t foresee: another assistant,
+a colleague with access to an organisation’s workspace, a public feed, the
+same person a year later. None of them can be relied on to notice that a
+belief has an unreconciled contradiction beside it, or to reconcile it
+before acting. A belief that is only consistent if its reader does the work
+is not one anyone can safely forget. So consistency is kept where the
+writing happens, by the harness that wrote the new claim and can see what it
+conflicts with, and every later reader gets a belief that is either
+reconciled or visibly unsettled.</p>
+<p>On arrival does not mean interrupting the person on arrival. The harness
+reconciles what it can, and records why in a synthesis that names it as the
+source. It brings the person in only where the reconciliation needs their
+judgement, or where the change stands in the way of something they mean to
+do, which is the obstinate breakdown of <a href="#how-they-meet">section 7</a>. The quiet the person gets
+comes from the work being done promptly, not from its being postponed.</p>
+<p>particulars is the retrospective layer: what is known. It is deliberately
+<em>not</em> a log of events, and not a store of procedures.</p>
+</section>
+
+<section id="prospective">
+<h2>6. Prospective memory: intentions</h2>
+<p>intentions holds what a person means to do with their time. It replaces the
+calendar’s slot with a duration, a window, and a reason. It separates three
+rungs that a calendar collapses:</p>
+<ul>
+<li><strong>Desire.</strong> A want, expressed but not adopted. Desires may contradict each
+other freely and are checked against nothing. A passing remark goes here
+until the person adopts it or lets it go.</li>
+<li><strong>Intention.</strong> A plan the person has adopted, which costs a why: it must
+serve something, and the chain of what it serves ends in a terminus, a
+self-understanding.</li>
+<li><strong>Commitment.</strong> Where another party is involved, with a status per party
+that only that party can change.</li>
+</ul>
+<p>This is the Belief–Desire–Intention structure of practical reasoning (Bratman
+1987; Rao and Georgeff 1991), with particulars supplying the beliefs. It’s
+also Frankfurt’s structure: desires that can be inspected, and adoption as
+the act of endorsing one.</p>
+<p>The format’s design principles read as a theory of what to forget. “A plan
+made is a plan the mind lets go of, whether or not it is done yet.” A
+settled plan spares a limited agent from deliberating again (Bratman 1987),
+but only if it is held somewhere the person trusts, ends at a reason the
+person has chosen to rest on, and comes back only when something actually
+conflicts with it. Resolution ranks placements and never chooses. Clashes are
+flags, never decisions. Both keep the person’s acts the person’s.</p>
+<h3 id="surfacing">What surfaces with a breakdown</h3>
+<p>When equipment breaks down, Heidegger says, what comes into view is not only
+the broken thing but the whole it belonged to: the chain of <em>in-order-to</em>
+that ends in a <em>for-the-sake-of</em>, which is to say in who someone is trying to
+be (<em>Being and Time</em>, §§16–18). While the hammer works, the house it is for
+stays out of sight. When it breaks, the house is suddenly what matters.</p>
+<p>intentions’ serves graph is that whole, written down. Its references even
+carry Heidegger’s names: an intention serves another <em>in-order-to</em>, and the
+chain ends in a terminus it serves <em>for-the-sake-of</em>. So when something
+surfaces, the chain it serves should surface with it. A clash on <em>90 minutes
+on the budget narrative</em> comes back as: in order to get the board pack out by
+week 38, in order to run the finance function well, for the sake of being
+someone who follows through.</p>
+<p>This does three things that the item alone can’t.</p>
+<ul>
+<li><strong>It keeps the breakdown practical.</strong> Shown with what it is for, the
+clashing block is un-ready-to-hand: a problem inside the work, to be fixed
+so the work can go on. Shown alone, it is present-at-hand: an isolated
+object, and an invitation to deliberate from scratch.</li>
+<li><strong>It lets the person repair at the right level.</strong> Perhaps the board pack
+has moved and the block no longer matters. Perhaps another way of running
+the finance function well would do. The chain shows where the slack is.
+Reading a plan at the level of what it is for also makes it more resistant
+to casual reconsideration than reading it at the level of how it is done
+(Fujita et al. 2006).</li>
+<li><strong>It stops the regress.</strong> The chain ends at the terminus, a foundation the
+person chose. Surfacing goes up only that far, so a breakdown never turns
+into the underground man’s search for ever more primary causes.</li>
+</ul>
+<p>particulars has the same shape for belief. A contradicted belief surfaces
+with its synthesis and the claims it rests on, so the person sees what the
+belief was holding up before deciding what to do with it.</p>
+<p>Implementation intentions, “when X, I will Y”, are the strongest known form
+of a decision closed in advance (Gollwitzer 1999), and intentions’ policies
+are where they live.</p>
+</section>
+
+<section id="how-they-meet">
+<h2>7. How they meet</h2>
+<p>The formats are coupled only through the URIs of the particulars they share.
+A claim may cite an intention by id, and an intention may point at a claim,
+but neither validates the other, and no reference is resolved across them.
+Loose coupling is deliberate: each format can be adopted, implemented and
+versioned alone.</p>
+<p>Behaviour that spans both belongs in harness patterns, not in either
+specification. Two are already clear, and <a href="#why-forget">section 1</a> calls for a third.</p>
+<p><strong>News for a plan.</strong> An intention names a subject, parties and locations,
+all particulars. A harness can recall what DKF believes about each, and any
+belief newer than the intention’s last edit is news the person may need.</p>
+<p>News is not yet a breakdown. A changed belief is a matter for particulars,
+and is reconciled there, until it stands in the way of something the person
+means to do. Only then is it obstinate, and the obstinacy belongs to the
+plan, not to the belief. Whether a new belief does stand in the way is a
+judgement, so the harness flags and the person decides, as with any clash in
+intentions. When it does, it surfaces as <a href="#prospective">section 6</a> describes, with the chain
+the plan serves, so the person can see whether the plan is blocked or only
+this route to what it is for.</p>
+<p>A commitment imported from a calendar that clashes with an intention is the
+same breakdown arriving from the other direction. intentions already flags
+it. What the pattern adds is the belief side: the plan can be obstructed by
+what the person learns, not only by what other people ask of their time.</p>
+<p><strong>The return path.</strong> The intentions terminus <em>being someone who follows
+through</em> references a DKF claim the person holds about themselves. That claim
+is held because DKF records what they did. People infer who they are from
+what they observe themselves doing (Bem 1972), so a self-understanding that
+cites evidence is one the person can believe, and one that cites none is a
+hope. This is where a record of episodes would make the loop work, and it is
+the strongest argument for the gap in the next section.</p>
+<p><strong>Reflection.</strong> One kind of breakdown never announces itself: a habit that
+has outlived its reason carries on smoothly, and nothing in use shows it.
+So a harness can’t only wait for breakdowns. It has to give the person
+occasions to step back, and bring to them what stepping back needs.</p>
+<p>The occasion is the person’s, not the harness’s. The natural way to hold it
+is as an intention like any other: a recurring review, serving a terminus
+such as <em>being someone who lives on purpose</em>. The harness may suggest one,
+but the person adopts it, and when they would rather not reflect, nothing
+happens. A harness that schedules reflection on its own authority has made
+itself one more claim on the person’s time.</p>
+<p>What a reflection brings, walking from each terminus down:</p>
+<ul>
+<li><strong>What the self rests on.</strong> The DKF claims each terminus cites, with what
+has happened since that bears on them. A self-understanding whose evidence
+has thinned is the first thing worth seeing.</li>
+<li><strong>Candidates for outlived habits.</strong> These are partly computable: a
+recurring intention whose chain now ends at a terminus the person has
+retired or reworded, or which rests on a belief that has since been
+reconciled differently. The rest is the person’s judgement, so the harness
+lists candidates with their chains and asks.</li>
+<li><strong>Desires still waiting.</strong> Wants that were never adopted or let go. A
+desire costs nothing to keep, which is why they pile up; reflection is
+where each is adopted, which costs a why, or let go.</li>
+<li><strong>The termini themselves.</strong> Frankfurt’s question, asked at the top of the
+graph: is this still who I want to be? A terminus is the one object
+reflection may change that nothing else in the format will prompt.</li>
+</ul>
+<p>Three constraints keep reflection from becoming the overthinking this paper
+began with. It is <strong>bounded</strong>: it shows what changed since the last
+reflection, not the whole workspace, and it ends when the person stops. It
+<strong>proposes and never decides</strong>, as everywhere in intentions: retiring a
+habit’s intention, rewording a terminus, letting a desire go are the
+person’s acts. And it <strong>keeps authorship visible</strong>: anything the harness
+inferred, such as a candidate habit or a thinning of evidence, says so,
+because a reflection that hands the person the assistant’s conclusions about
+who they are is the opposite of the point.</p>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>intentions has no retirement kind for a plan that has become
+habit. An intention retires as <code>fulfilled</code>, <code>abandoned</code> or <code>superseded</code>, and
+none says “this is now done without a plan”. <a href="#gaps">Section 8</a> says the plan can be
+retired once a habit has formed, but the reflection pattern needs the
+habit’s reason to stay readable. Either a recurring intention stays active
+after it has become habit, which keeps its reason but leaves resolution
+placing instances nobody needs, or intentions gains a kind such as
+<code>habituated</code>, retired but still walked by reflection. That is a question
+for the intentions spec:
+<a href="https://github.com/nodelogicau/intentions/issues/30">intentions#30</a>.</p>
+</aside>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>Are there other harness patterns worth naming here? Candidates:
+a commitment imported from iCalendar that contradicts a DKF belief about a
+party; a desire whose stated reason is a belief that has since been retracted.</p>
+</aside>
+</section>
+
+<section id="gaps">
+<h2>8. The gaps</h2>
+<h3 id="episodic">Episodic memory</h3>
+<p>Today a person who wants to record that <em>the certificate was renewed on
+Tuesday</em> writes a DKF claim about the event. intentions says outright that a
+retrospective account of what happened is not its job. So episodes are pushed
+into a format built for reconciliation, where they don’t belong: you don’t
+reconcile a past event, and an event log only accumulates.</p>
+<p>That would be a small mismatch if episodes were peripheral. They are not.
+Episodic memory is where the loop between intending and doing closes. Without
+a record of what was done, there is nothing to compare against what was
+meant, nothing for a self-understanding to cite, and no basis for asking
+whether a person is becoming who they meant to be. Reflection, which the
+episodic row of the table in <a href="#memory">section 2</a> names as the moment episodes are
+needed, has nothing to work on.</p>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>Is this a third format or a DKF extension? Episodes need no
+dialectic, which points to a separate format. They take particulars as
+subjects and would be cited by claims constantly, which points to an
+extension.</p>
+</aside>
+<h3 id="procedural">Procedural memory</h3>
+<p>Procedural memory doesn’t fit the argument of <a href="#why-forget">section 1</a> the way the others
+do, because it is already ready-to-hand. A practised skill withdraws on its
+own: that is Heidegger’s absorbed coping, and the end point of Dreyfus and
+Dreyfus’s account of skill, in which a novice following explicit rules
+becomes an expert who no longer consults them (Dreyfus and Dreyfus 1986).
+Nobody needs a store in order to forget how to ride a bicycle. For a person,
+the family’s relationship to procedural memory runs the other way. It is
+about what gets internalised, not what gets externalised, and it has three
+parts.</p>
+<p><strong>Habit is where an intention ends up.</strong> A recurring intention practised for
+long enough stops needing the plan. Habit research describes the shift:
+behaviour that began as goal-directed comes to be cued by its context, and
+runs without the goal being called to mind (Wood and Neal 2007; Lally et al.
+2010). Aristotle put the same thing in terms closer to this paper’s: we
+become just by doing just acts (<em>Nicomachean Ethics</em>, II.1). A terminus
+such as <em>being someone who follows through</em> is finally made real in habit,
+not in a file. The formats support the way there, and then the plan can stop
+being planned, though its reason has to stay readable for reflection (<a href="#how-they-meet">section 7</a>). How intentions records that is open:
+<a href="https://github.com/nodelogicau/intentions/issues/30">intentions#30</a>.</p>
+<p><strong>A habit’s breakdown is that it outlives its reason.</strong> Because a habit no
+longer consults its goal, it carries on when the goal has changed, and
+because it is invisible from the inside, the person is the last to notice.
+This is the fourth row of <a href="#why-forget">section 1</a>’s table, the one Heidegger doesn’t list.
+Nothing obtrudes in use; it shows only when someone reflects. Keeping the why outside, in the
+intention the habit came from and the terminus that intention served, is what
+lets a habit be examined later. It is Frankfurt’s question again, asked of
+habits rather than desires: is this something I endorse doing?</p>
+<p><strong>Rare procedures never become habit.</strong> Renewing a certificate once a year,
+or filing a tax return, happens too seldom to be practised. These are where
+externalised know-how genuinely serves a person, and that know-how is mostly
+episodic: <em>how did I do this last time?</em> So the human case for procedural
+memory is largely a case for the episodic gap above, plus intentions’
+retained reasons for habits, rather than a case for a procedural format.</p>
+<p><strong>Agent skills are delegation, not the person’s procedural memory.</strong> Skills
+(<code>SKILL.md</code>), prompts, and a DKF workspace’s <code>dkf.md</code> conventions document
+are how a harness knows how to do things. They are the harness’s procedural
+memory. When an agent does something on a person’s behalf, the person
+holds the procedure in no form at all. That is a real benefit, and it has a
+known cost: people lose the skill they delegated, and with it the ability to
+step in when the automation fails (Bainbridge 1983). Whether the harness’s
+own procedures belong in the family is a separate question (<a href="#open-questions">section 10</a>).</p>
+</section>
+
+<section id="measuring">
+<h2>9. Measuring it</h2>
+<p>Agent memory is commonly evaluated with LongMemEval, which tests information
+extraction, multi-session reasoning, temporal reasoning, knowledge updates and
+abstention over long chat histories (Wu et al. 2024). Most of its questions
+are episodic: what was said, and when.</p>
+<p>Read through the memory framing, the categories divide between the layers:</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Category</th><th>Owning layer</th><th>What DKF should be judged on</th></tr>
+</thead>
+<tbody>
+<tr><td>Knowledge update</td><td>Semantic</td><td>Reconciling, not overwriting; the current belief and why</td></tr>
+<tr><td>Abstention</td><td>Semantic</td><td>Knowing what isn’t known</td></tr>
+<tr><td>Information extraction</td><td>Episodic, via ingestion</td><td>Whether ingestion captured it as a claim</td></tr>
+<tr><td>Multi-session reasoning</td><td>Episodic and semantic</td><td>Synthesis across sources</td></tr>
+<tr><td>Temporal reasoning</td><td>Episodic</td><td>Mostly out of scope until an episodic format exists</td></tr>
+</tbody>
+</table>
+</div>
+<p>DKF should be judged mainly on knowledge update, abstention and provenance,
+and on ingestion for the rest. intentions-bench measures something
+LongMemEval doesn’t: whether a remark lands on the right rung, whether the
+window is kept as the person said it, and whether the agent refrains from
+acts that are the person’s.</p>
+<p>What no benchmark measures yet is the thing this paper is about: whether a
+person can stop holding something. A proxy might be how often the store
+needs checking, or how many surfaced items were genuine breakdowns rather
+than noise.</p>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>Confirm the category mapping against particulars-bench’s
+stratification and current results before publishing.</p>
+</aside>
+</section>
+
+<section id="open-questions">
+<h2>10. Open questions</h2>
+<ul>
+<li><strong>Should the provenance spine be its own specification?</strong> intentions copies
+DKF’s id and author shape by agreement. A shared spec would make the family
+explicit, but is itself a form of coupling.</li>
+<li><strong>Is episodic memory a third format or a DKF extension?</strong> See <a href="#gaps">section 8</a>.</li>
+<li><strong>Does the human purpose belong in the specifications?</strong> Each
+specification’s <em>Purpose</em> is about the format. Helping a person act with
+purpose may belong only here and on the landing pages, so the specs stay
+neutral about what they are used for.</li>
+<li><strong>When does upkeep become the breakdown?</strong> A store the person has to tend
+never withdraws: it becomes the thing in the way. The harness has to take on capture,
+reconciliation and surfacing so the person doesn’t. How much can it take on
+before authorship is lost?</li>
+<li><strong>Agent or person?</strong> The formats serve an agent’s memory and a person’s
+alike. The motivation is about the person; the benchmarks are about the
+agent. One reading is that the agent is the harness that keeps a person’s
+externalised self.</li>
+<li><strong>Does the harness’s procedural memory belong in the family?</strong> Skills and
+conventions documents are how an agent knows how to do things for a
+person. They might deserve a format of their own, or they might be an
+implementation concern, like an index. If they belong, the paper needs to
+say what they do for the person, and how delegating a procedure avoids
+costing the person the skill.</li>
+<li><strong>Settled plans or radical freedom?</strong> Sartre holds that no past choice
+binds: a person chooses again in every moment, and the anguish of that is
+the price of freedom. intentions sides with Bratman, holding that settled
+plans are what let a limited agent act at all. The paper should say why,
+and what the format does to keep a settled plan from becoming bad faith.</li>
+</ul>
+</section>
+
+<section id="references">
+<h2>References</h2>
+<h3>Philosophy</h3>
+<ul class="refs">
+<li>Aristotle, <em>Nicomachean Ethics</em>, Book II.</li>
+<li>Fyodor Dostoevsky, <em>Notes from Underground</em> (1864), tr. Constance Garnett,
+Part I §5.</li>
+<li>Lewis Carroll, <em>Through the Looking-Glass</em> (1871), ch. 5.</li>
+<li>Friedrich Nietzsche, “On the Uses and Disadvantages of History for Life”
+(1874); <em>On the Genealogy of Morals</em> (1887), II §1; <em>Ecce Homo</em> (1888).</li>
+<li>Martin Heidegger, <em>Being and Time</em> (1927), §§15–18.</li>
+<li>Jean-Paul Sartre, <em>Being and Nothingness</em> (1943).</li>
+<li>Albert Camus, <em>The Rebel</em> (1951), tr. Anthony Bower, “Thought at the
+Meridian”.</li>
+<li>Harry Frankfurt, “Freedom of the will and the concept of a person”,
+<em>Journal of Philosophy</em> (1971).</li>
+<li>Hubert Dreyfus and Stuart Dreyfus, <em>Mind over Machine</em> (1986).</li>
+<li>Michael Bratman, <em>Intention, Plans, and Practical Reason</em> (1987).</li>
+<li>Andy Clark and David Chalmers, “The extended mind”, <em>Analysis</em> (1998).</li>
+</ul>
+<h3>Psychology</h3>
+<ul class="refs">
+<li>Bluma Zeigarnik, “Das Behalten erledigter und unerledigter Handlungen”,
+<em>Psychologische Forschung</em> (1927).</li>
+<li>Endel Tulving, “Episodic and semantic memory” (1972).</li>
+<li>Daryl Bem, “Self-perception theory” (1972).</li>
+<li>Neal Cohen and Larry Squire, “Preserved learning and retention of
+pattern-analyzing skill in amnesia”, <em>Science</em> (1980).</li>
+<li>Daniel Schacter, Joan Harbluk and Donald McLachlan, “Retrieval without
+recollection: an experimental analysis of source amnesia”, <em>Journal of Verbal
+Learning and Verbal Behavior</em> (1984).</li>
+<li>Gilles Einstein and Mark McDaniel, “Normal aging and prospective memory”,
+<em>JEP: Learning, Memory, and Cognition</em> (1990).</li>
+<li>Marcia Johnson, Shahin Hashtroudi and D. Stephen Lindsay, “Source
+monitoring”, <em>Psychological Bulletin</em> (1993).</li>
+<li>Peter Gollwitzer, “Implementation intentions: strong effects of simple
+plans”, <em>American Psychologist</em> (1999).</li>
+<li>Wendy Wood and David Neal, “A new look at habits and the habit–goal
+interface”, <em>Psychological Review</em> (2007).</li>
+<li>Kentaro Fujita, Yaacov Trope, Nira Liberman and Maya Levin-Sagi, “Construal
+levels and self-control”, <em>JPSP</em> (2006).</li>
+<li>Phillippa Lally, Cornelia van Jaarsveld, Henry Potts and Jane Wardle, “How
+are habits formed: modelling habit formation in the real world”, <em>European
+Journal of Social Psychology</em> (2010).</li>
+<li>E. J. Masicampo and Roy Baumeister, “Consider it done! Plan making can
+eliminate the cognitive effects of unfulfilled goals”, <em>JPSP</em> (2011).</li>
+<li>Evan Risko and Sam Gilbert, “Cognitive offloading”, <em>Trends in Cognitive
+Sciences</em> (2016).</li>
+</ul>
+<h3>Design</h3>
+<ul class="refs">
+<li>Lisanne Bainbridge, “Ironies of automation”, <em>Automatica</em> (1983).</li>
+<li>Terry Winograd and Fernando Flores, <em>Understanding Computers and Cognition: A
+New Foundation for Design</em> (1986).</li>
+<li>Hubert Dreyfus, <em>Being-in-the-World: A Commentary on Heidegger’s Being and
+Time, Division I</em> (1991).</li>
+<li>Paul Dourish, <em>Where the Action Is: The Foundations of Embodied Interaction</em>
+(2001).</li>
+</ul>
+<h3>Agents and evaluation</h3>
+<ul class="refs">
+<li>Anand Rao and Michael Georgeff, “Modeling rational agents within a
+BDI-architecture”, <em>KR</em> (1991).</li>
+<li>Di Wu et al., “LongMemEval: benchmarking chat assistants on long-term
+interactive memory” (2024).</li>
+</ul>
+<h3>The formats</h3>
+<p class="formats"><a href="https://github.com/nodelogicau/particulars">particulars</a> ·
+<a href="https://github.com/nodelogicau/particulars-bench">particulars-bench</a> ·
+<a href="https://github.com/nodelogicau/intentions">intentions</a> ·
+<a href="https://github.com/nodelogicau/intentions-bench">intentions-bench</a></p>
+</section>
+
+  </article>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Forgetting is a whitepaper from <a href="https://github.com/nodelogicau">Node Logic</a>
+      on the reasoning behind <a href="https://particulars.fyi">particulars</a> and
+      <a href="https://intentions.fyi">intentions</a>. It is released under CC0 1.0
+      Universal. <a href="https://github.com/nodelogicau/forgetting">Source on GitHub</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
