@@ -46,10 +46,10 @@
 ## 6. Deploy and close out
 
 - [x] 6.1 Commit `docs/`, the stub and the README edit together; push
-- [ ] 6.2 Pages settings: deploy from `main`, folder `/docs`; confirm the `github.io` address serves the page
-- [ ] 6.3 DNS: four apex `A` records (DNS-only) and `www` CNAME; wait for the certificate; enforce HTTPS
+- [x] 6.2 Pages settings: deploy from `main`, folder `/docs`; confirm the `github.io` address serves the page
+- [x] 6.3 DNS: four apex `A` records (DNS-only) and `www` CNAME; wait for the certificate; enforce HTTPS
 - [x] 6.4 Note the follow-up in particulars and intentions: point README links (and optionally each site) at forgetting.fyi
-- [ ] 6.5 Archive the change with sync so `paper-site` lands in the main specs
+- [x] 6.5 Archive the change with sync so `paper-site` lands in the main specs
 
 ## 7. Restyle as a paper
 
