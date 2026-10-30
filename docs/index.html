@@ -82,7 +82,6 @@
   svg .edge-dash { stroke: var(--muted); stroke-dasharray: 4 4; }
   svg .divider { stroke: var(--line); stroke-dasharray: 2 5; stroke-width: 1; }
   svg .head { fill: var(--fg); stroke: none; }
-  svg .head-gap { fill: var(--muted); stroke: none; }
   svg a text { text-decoration: underline; }
 
   /* contents */
@@ -514,8 +513,8 @@ is met by a contrary claim, and a synthesis reconciles them, carrying the
 reasoning. The synthesis becomes the new current belief, open to being
 contradicted in turn.</p>
 <p>What is computable without a model in the loop is what has <em>not</em> been
-reconciled: claims newer than the current belief, and syntheses resting on
-retracted inputs. That is exactly the conspicuous breakdown of <a href="#why-forget">section 1</a>. A
+reconciled: claims newer than the current belief, and syntheses or inferred
+claims resting on something since retracted. That is exactly the conspicuous breakdown of <a href="#why-forget">section 1</a>. A
 well-behaved harness says nothing about a particular whose belief is settled,
 and surfaces it when something new arrives that the current belief doesn’t
 account for.</p>
@@ -766,13 +765,11 @@ the one before.</p>
       person moves forward and stops holding each step. Beneath, the way back
       runs right to left: the habit is still its recurring intention, the
       intention points at the rule through an informal reference, and the
-      link from the rule to its episodes is missing.</desc>
+      rule cites claims about its episodes through its basis. The episodes
+      themselves have no format yet.</desc>
     <defs>
       <marker id="f2-head" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
         <path d="M0,0 L8,4 L0,8 z" class="head"/>
-      </marker>
-      <marker id="f2-head-gap" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
-        <path d="M0,0 L8,4 L0,8 z" class="head-gap"/>
       </marker>
     </defs>
     <text x="430" y="26" text-anchor="middle" class="lbl">the person moves forward, and stops holding each step</text>
@@ -809,22 +806,23 @@ the one before.</p>
     <text x="650" y="212" text-anchor="middle" class="small">the same object</text>
     <path d="M530 150 V190 H330 V152" class="edge" marker-end="url(#f2-head)"/>
     <text x="430" y="212" text-anchor="middle" class="small">its reference</text>
-    <path d="M310 150 V190 H110 V152" class="edge edge-dash" marker-end="url(#f2-head-gap)"/>
-    <text x="210" y="212" text-anchor="middle" class="small">cites (missing)</text>
+    <path d="M310 150 V190 H110 V152" class="edge" marker-end="url(#f2-head)"/>
+    <text x="210" y="212" text-anchor="middle" class="small">its basis</text>
 
     <text x="430" y="250" text-anchor="middle" class="lbl">the store keeps the way back</text>
   </svg>
   </div>
   <figcaption>Figure 2. Each step lets the person stop holding the one before.
-    The way back is a chain of citations, and only its far end is missing.</figcaption>
+    The way back is a chain of citations. Its last link reaches claims about
+    what happened; the episodes themselves have no format yet.</figcaption>
 </figure>
 <p><strong>Episodes become rules of thumb.</strong> Over time, memory folds repeated
 episodes into general knowledge that no longer recalls its instances
 (McClelland, McNaughton and O’Reilly 1995). The renewal broke because the
 TTL was long; after the second or third time, renewals go wrong when the TTL
-is long. In DKF that is a claim whose evidential is <code>inferred</code>, and the
-episodes are what it is inferred from. It changes in the way particulars
-expects. A counterexample does not overturn a rule of thumb, it narrows where
+is long. In DKF that is a claim whose evidential is <code>inferred</code>, and its
+<code>basis</code> names what it was inferred from: the claims about each episode.
+It changes in the way particulars expects. A counterexample does not overturn a rule of thumb, it narrows where
 the rule holds, which is a synthesis by qualification.</p>
 <p>The word for such a rule is heuristic, and it carries two meanings. For
 Tversky and Kahneman a heuristic is the shortcut behind a bias (1974). For
@@ -858,27 +856,27 @@ spine already makes chains walkable.</p>
 <p>The person’s end of the chain holds. A habit keeps its intention, and an
 intention its terminus, by the format’s own rules. The pointer from an
 intention to a claim is informal and never resolved, which is the loose
-coupling of <a href="#how-they-meet">section 7</a>. The far end is missing twice over: there is no
-episode to cite, and a DKF claim has no field naming what it was inferred
-from. A synthesis has inputs, but none of its three methods is induction.
-Until both are filled, the chain can be walked from a habit down to a rule
-of thumb, and there it stops at an assertion.</p>
+coupling of <a href="#how-they-meet">section 7</a>. A rule of thumb names its instances in its
+<code>basis</code>, and particulars gives induction no synthesis method of its own,
+because a synthesis becomes the current belief about its subject and a rule
+of thumb is one belief among several
+(<a href="https://github.com/nodelogicau/particulars#what-an-inference-rests-on">particulars, <em>What an inference rests on</em></a>).
+A basis cites claims, not episodes. Until there is an episodic format, the
+claims about what happened are where the chain ends, and each of those
+cites whatever recorded the episode as its document. The chain can be walked
+from a habit down to what was observed, and stops short only of the
+record.</p>
 <p><strong>Its breakdown.</strong> A rule of thumb induced from too few episodes, or
 carried past the conditions it was learned in, fails the way a habit
 outlives its reason, and it is as invisible from the inside. The chain makes
-it checkable: a rule that cites two episodes from three years ago says so.
+it checkable: a rule whose basis is two episodes from three years ago says
+so. And when a claim about one of its episodes is retracted, the rule goes
+stale, and comes back to the person as a breakdown rather than waiting to be
+noticed.
 Agent memory tends to produce the opposite. The reflections that agents
 write about their own experience (Park et al. 2023; Shinn et al. 2023) are
 rules of thumb, and when they don’t cite the episodes they came from, they
 are the fluent unsourced claim that particulars is built to refuse.</p>
-<aside class="draft-note">
-<p class="label">Draft note</p>
-<p>Should induction be a fourth synthesis method, or should an
-inferred claim name what it was inferred from? The first keeps DKF’s rule
-that only a synthesis has inputs. The second is smaller, and would let a
-rule of thumb cite its episodes once they exist. Either is a question for
-the particulars spec.</p>
-</aside>
 <aside class="draft-note">
 <p class="label">Draft note</p>
 <p>An occasion in intentions is a cadence. A rule of thumb whose
@@ -890,9 +888,9 @@ a calendar, and the second is not something to do.</p>
 <p class="label">Draft note</p>
 <p>Does the chain answer <a href="#open-questions">section 11</a>’s question about the
 harness’s procedural memory? A skill is a set of rules of thumb for a
-harness, mostly without the episodes behind them. If each rule could cite
-its episodes, skills might belong in the family as claims on the spine,
-not as a format of their own.</p>
+harness, mostly without the episodes behind them. Now that a rule can cite
+its basis, skills might belong in the family as claims on the spine, not as
+a format of their own.</p>
 </aside>
 </section>
 
