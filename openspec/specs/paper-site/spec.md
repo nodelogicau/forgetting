@@ -96,9 +96,13 @@ A contents list SHALL link to the Summary, every numbered section, and the Refer
 ### Requirement: Draft notes stay visible and marked as open
 Every *Draft note* in the paper SHALL be rendered as a distinct element, labelled "Draft note" and styled so that it reads as unsettled, apart from the surrounding argument, in both colour schemes.
 
-#### Scenario: The draft notes are counted
-- **WHEN** the page's draft-note elements are counted
-- **THEN** their number equals the number of *Draft note* blockquotes in `whitepaper.md` at the last commit before it became a stub
+#### Scenario: Every note is marked
+- **WHEN** the page's draft-note elements and its "Draft note" labels are listed
+- **THEN** every label is inside a draft-note element, and every draft-note element carries exactly one label
+
+#### Scenario: A settled note is removed
+- **WHEN** the question a draft note raises is settled
+- **THEN** the note is removed, its answer is carried in the surrounding argument, and the page still satisfies *Every note is marked*
 
 ### Requirement: Claims about a format agree with its README
 Nothing the page states about what particulars or intentions does SHALL contradict that format's README on `main` at the time of publication. The page MAY argue for why a format is as it is.
