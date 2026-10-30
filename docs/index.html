@@ -81,6 +81,8 @@
   svg .edge { stroke: var(--fg); stroke-width: 1; fill: none; }
   svg .edge-dash { stroke: var(--muted); stroke-dasharray: 4 4; }
   svg .divider { stroke: var(--line); stroke-dasharray: 2 5; stroke-width: 1; }
+  svg .head { fill: var(--fg); stroke: none; }
+  svg .head-gap { fill: var(--muted); stroke: none; }
   svg a text { text-decoration: underline; }
 
   /* contents */
@@ -203,8 +205,9 @@
       <li><a href="#prospective"><span class="n">6</span>Prospective memory: intentions</a></li>
       <li><a href="#how-they-meet"><span class="n">7</span>How they meet</a></li>
       <li><a href="#gaps"><span class="n">8</span>The gaps</a></li>
-      <li><a href="#measuring"><span class="n">9</span>Measuring it</a></li>
-      <li><a href="#open-questions"><span class="n">10</span>Open questions</a></li>
+      <li><a href="#episode-to-habit"><span class="n">9</span>From episode to habit</a></li>
+      <li><a href="#measuring"><span class="n">10</span>Measuring it</a></li>
+      <li><a href="#open-questions"><span class="n">11</span>Open questions</a></li>
       <li><a href="#references"><span class="n"></span>References</a></li>
     </ol>
   </nav>
@@ -494,7 +497,7 @@ belief. A belief an assistant inferred shouldn’t quietly become the person’s
 <p class="label">Draft note</p>
 <p>intentions copies these conventions from particulars by
 agreement. Whether they should become a spec of their own is open
-(<a href="#open-questions">section 10</a>).</p>
+(<a href="#open-questions">section 11</a>).</p>
 </aside>
 </section>
 
@@ -670,19 +673,6 @@ because a reflection that hands the person the assistant’s conclusions about
 who they are is the opposite of the point.</p>
 <aside class="draft-note">
 <p class="label">Draft note</p>
-<p>intentions has no retirement kind for a plan that has become
-habit. An intention retires as <code>fulfilled</code>, <code>abandoned</code> or <code>superseded</code>, and
-none says “this is now done without a plan”. <a href="#gaps">Section 8</a> says the plan can be
-retired once a habit has formed, but the reflection pattern needs the
-habit’s reason to stay readable. Either a recurring intention stays active
-after it has become habit, which keeps its reason but leaves resolution
-placing instances nobody needs, or intentions gains a kind such as
-<code>habituated</code>, retired but still walked by reflection. That is a question
-for the intentions spec:
-<a href="https://github.com/nodelogicau/intentions/issues/30">intentions#30</a>.</p>
-</aside>
-<aside class="draft-note">
-<p class="label">Draft note</p>
 <p>Are there other harness patterns worth naming here? Candidates:
 a commitment imported from iCalendar that contradicts a DKF belief about a
 party; a desire whose stated reason is a belief that has since been retracted.</p>
@@ -729,8 +719,8 @@ runs without the goal being called to mind (Wood and Neal 2007; Lally et al.
 become just by doing just acts (<em>Nicomachean Ethics</em>, II.1). A terminus
 such as <em>being someone who follows through</em> is finally made real in habit,
 not in a file. The formats support the way there, and then the plan can stop
-being planned, though its reason has to stay readable for reflection (<a href="#how-they-meet">section 7</a>). How intentions records that is open:
-<a href="https://github.com/nodelogicau/intentions/issues/30">intentions#30</a>.</p>
+being planned, though its reason has to stay readable for reflection (<a href="#how-they-meet">section 7</a>). intentions records
+this by marking the recurring intention as habit (<a href="#episode-to-habit">section 9</a>).</p>
 <p><strong>A habit’s breakdown is that it outlives its reason.</strong> Because a habit no
 longer consults its goal, it carries on when the goal has changed, and
 because it is invisible from the inside, the person is the last to notice.
@@ -744,7 +734,8 @@ or filing a tax return, happens too seldom to be practised. These are where
 externalised know-how genuinely serves a person, and that know-how is mostly
 episodic: <em>how did I do this last time?</em> So the human case for procedural
 memory is largely a case for the episodic gap above, plus intentions’
-retained reasons for habits, rather than a case for a procedural format.</p>
+retained reasons for habits, rather than a case for a procedural format.
+<a href="#episode-to-habit">Section 9</a> follows that case through.</p>
 <p><strong>Agent skills are delegation, not the person’s procedural memory.</strong> Skills
 (<code>SKILL.md</code>), prompts, and a DKF workspace’s <code>dkf.md</code> conventions document
 are how a harness knows how to do things. They are the harness’s procedural
@@ -752,11 +743,161 @@ memory. When an agent does something on a person’s behalf, the person
 holds the procedure in no form at all. That is a real benefit, and it has a
 known cost: people lose the skill they delegated, and with it the ability to
 step in when the automation fails (Bainbridge 1983). Whether the harness’s
-own procedures belong in the family is a separate question (<a href="#open-questions">section 10</a>).</p>
+own procedures belong in the family is a separate question (<a href="#open-questions">section 11</a>).</p>
+</section>
+
+<section id="episode-to-habit">
+<h2>9. From episode to habit</h2>
+<p><a href="#memory">Section 2</a> treats the four kinds of memory apart, and the formats keep them
+apart, because each changes differently. In a person they are not apart.
+Experience moves through them in one direction: something happens, it
+happens again, a rule of thumb forms, the rule is adopted as a way of acting,
+and the way of acting becomes habit. Each step lets the person stop holding
+the one before.</p>
+<figure>
+  <div class="diagram-wrap">
+  <svg class="min640" viewBox="0 0 860 270" role="img" aria-labelledby="fig2-title fig2-desc">
+    <title id="fig2-title">From episode to habit, and the way back</title>
+    <desc id="fig2-desc">Four steps from left to right. An episode, what
+      happened, is episodic memory and not yet specified. It is induced into a
+      rule of thumb, an inferred claim in particulars. The rule is adopted as a
+      routine, a recurring intention in intentions. The routine is practised
+      until it is a habit, the same recurring intention marked as habit. The
+      person moves forward and stops holding each step. Beneath, the way back
+      runs right to left: the habit is still its recurring intention, the
+      intention points at the rule through an informal reference, and the
+      link from the rule to its episodes is missing.</desc>
+    <defs>
+      <marker id="f2-head" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+        <path d="M0,0 L8,4 L0,8 z" class="head"/>
+      </marker>
+      <marker id="f2-head-gap" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+        <path d="M0,0 L8,4 L0,8 z" class="head-gap"/>
+      </marker>
+    </defs>
+    <text x="430" y="26" text-anchor="middle" class="lbl">the person moves forward, and stops holding each step</text>
+    <line x1="20" y1="40" x2="838" y2="40" class="edge" marker-end="url(#f2-head)"/>
+
+    <rect x="20" y="60" width="160" height="90" rx="4" class="box-gap"/>
+    <text x="100" y="84" text-anchor="middle" class="lbl">episodic</text>
+    <text x="100" y="109" text-anchor="middle" font-weight="600">an episode</text>
+    <text x="100" y="132" text-anchor="middle" class="small">what happened</text>
+
+    <rect x="240" y="60" width="160" height="90" rx="4" class="box"/>
+    <text x="320" y="84" text-anchor="middle" class="lbl">semantic</text>
+    <text x="320" y="109" text-anchor="middle" font-weight="600">a rule of thumb</text>
+    <text x="320" y="132" text-anchor="middle" class="small">an inferred claim</text>
+
+    <rect x="460" y="60" width="160" height="90" rx="4" class="box"/>
+    <text x="540" y="84" text-anchor="middle" class="lbl">prospective</text>
+    <text x="540" y="109" text-anchor="middle" font-weight="600">a routine</text>
+    <text x="540" y="132" text-anchor="middle" class="small">a recurring intention</text>
+
+    <rect x="680" y="60" width="160" height="90" rx="4" class="box"/>
+    <text x="760" y="84" text-anchor="middle" class="lbl">procedural</text>
+    <text x="760" y="109" text-anchor="middle" font-weight="600">a habit</text>
+    <text x="760" y="132" text-anchor="middle" class="small">marked as habit</text>
+
+    <text x="210" y="98" text-anchor="middle" class="lbl">induce</text>
+    <line x1="182" y1="108" x2="238" y2="108" class="edge" marker-end="url(#f2-head)"/>
+    <text x="430" y="98" text-anchor="middle" class="lbl">adopt</text>
+    <line x1="402" y1="108" x2="458" y2="108" class="edge" marker-end="url(#f2-head)"/>
+    <text x="650" y="98" text-anchor="middle" class="lbl">practise</text>
+    <line x1="622" y1="108" x2="678" y2="108" class="edge" marker-end="url(#f2-head)"/>
+
+    <path d="M750 150 V190 H550 V152" class="edge" marker-end="url(#f2-head)"/>
+    <text x="650" y="212" text-anchor="middle" class="small">the same object</text>
+    <path d="M530 150 V190 H330 V152" class="edge" marker-end="url(#f2-head)"/>
+    <text x="430" y="212" text-anchor="middle" class="small">its reference</text>
+    <path d="M310 150 V190 H110 V152" class="edge edge-dash" marker-end="url(#f2-head-gap)"/>
+    <text x="210" y="212" text-anchor="middle" class="small">cites (missing)</text>
+
+    <text x="430" y="250" text-anchor="middle" class="lbl">the store keeps the way back</text>
+  </svg>
+  </div>
+  <figcaption>Figure 2. Each step lets the person stop holding the one before.
+    The way back is a chain of citations, and only its far end is missing.</figcaption>
+</figure>
+<p><strong>Episodes become rules of thumb.</strong> Over time, memory folds repeated
+episodes into general knowledge that no longer recalls its instances
+(McClelland, McNaughton and O’Reilly 1995). The renewal broke because the
+TTL was long; after the second or third time, renewals go wrong when the TTL
+is long. In DKF that is a claim whose evidential is <code>inferred</code>, and the
+episodes are what it is inferred from. It changes in the way particulars
+expects. A counterexample does not overturn a rule of thumb, it narrows where
+the rule holds, which is a synthesis by qualification.</p>
+<p>The word for such a rule is heuristic, and it carries two meanings. For
+Tversky and Kahneman a heuristic is the shortcut behind a bias (1974). For
+Gigerenzer it is a simple rule that works because it fits the environment it
+was learned in (Gigerenzer and Todd 1999). The second is meant here, and its
+condition is the part that matters: a rule of thumb is good where it was
+learned, and nothing promises it beyond that.</p>
+<p><strong>Rules of thumb become routines.</strong> Knowing that renewals break with
+long TTLs does nothing yet. A person who decides to lower the TTL the week
+before each renewal has adopted an intention about a kind of occasion rather
+than one occasion. Bratman calls these policies (1987), a word intentions
+uses for something narrower. In intentions it is a recurring intention: its
+cadence is the renewal’s, it serves a terminus as any intention does, and it
+may point at the rule it came from through its informal reference to a
+claim.</p>
+<p><strong>Routines become habits.</strong> A recurring intention practised long
+enough becomes habit, as <a href="#procedural">section 8</a> describes, and intentions lets the
+person mark it so. A habit generates no instances, but it stays active and
+grounded in its terminus, so its reason stays readable. The plan stops being
+planned without being thrown away.</p>
+<p><strong>The way back.</strong> Moving forward is a kind of forgetting: a habit
+doesn’t consult its plan, and a plan doesn’t reread its evidence. What makes
+that forgetting safe is that the store keeps the chain, and every link in it
+is a citation. The habit is still the recurring intention it came from, the
+intention points at the rule it rests on, and the rule rests on the episodes
+it was inferred from. <em>Why do I do this?</em> is answered by walking the chain,
+and the answer ends at things that happened, not at an assertion. This is the
+way back that Figure 1 asks of procedural memory, and it is why procedural
+memory needs no format of its own. It needs the chain, and the provenance
+spine already makes chains walkable.</p>
+<p>The person’s end of the chain holds. A habit keeps its intention, and an
+intention its terminus, by the format’s own rules. The pointer from an
+intention to a claim is informal and never resolved, which is the loose
+coupling of <a href="#how-they-meet">section 7</a>. The far end is missing twice over: there is no
+episode to cite, and a DKF claim has no field naming what it was inferred
+from. A synthesis has inputs, but none of its three methods is induction.
+Until both are filled, the chain can be walked from a habit down to a rule
+of thumb, and there it stops at an assertion.</p>
+<p><strong>Its breakdown.</strong> A rule of thumb induced from too few episodes, or
+carried past the conditions it was learned in, fails the way a habit
+outlives its reason, and it is as invisible from the inside. The chain makes
+it checkable: a rule that cites two episodes from three years ago says so.
+Agent memory tends to produce the opposite. The reflections that agents
+write about their own experience (Park et al. 2023; Shinn et al. 2023) are
+rules of thumb, and when they don’t cite the episodes they came from, they
+are the fluent unsourced claim that particulars is built to refuse.</p>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>Should induction be a fourth synthesis method, or should an
+inferred claim name what it was inferred from? The first keeps DKF’s rule
+that only a synthesis has inputs. The second is smaller, and would let a
+rule of thumb cite its episodes once they exist. Either is a question for
+the particulars spec.</p>
+</aside>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>An occasion in intentions is a cadence. A rule of thumb whose
+occasion is a condition, such as before any deploy, has no natural home, and
+neither has a maxim such as never deploying on a Friday: the first is not on
+a calendar, and the second is not something to do.</p>
+</aside>
+<aside class="draft-note">
+<p class="label">Draft note</p>
+<p>Does the chain answer <a href="#open-questions">section 11</a>’s question about the
+harness’s procedural memory? A skill is a set of rules of thumb for a
+harness, mostly without the episodes behind them. If each rule could cite
+its episodes, skills might belong in the family as claims on the spine,
+not as a format of their own.</p>
+</aside>
 </section>
 
 <section id="measuring">
-<h2>9. Measuring it</h2>
+<h2>10. Measuring it</h2>
 <p>Agent memory is commonly evaluated with LongMemEval, which tests information
 extraction, multi-session reasoning, temporal reasoning, knowledge updates and
 abstention over long chat histories (Wu et al. 2024). Most of its questions
@@ -793,7 +934,7 @@ stratification and current results before publishing.</p>
 </section>
 
 <section id="open-questions">
-<h2>10. Open questions</h2>
+<h2>11. Open questions</h2>
 <ul>
 <li><strong>Should the provenance spine be its own specification?</strong> intentions copies
 DKF’s id and author shape by agreement. A shared spec would make the family
@@ -851,6 +992,8 @@ Meridian”.</li>
 <em>Psychologische Forschung</em> (1927).</li>
 <li>Endel Tulving, “Episodic and semantic memory” (1972).</li>
 <li>Daryl Bem, “Self-perception theory” (1972).</li>
+<li>Amos Tversky and Daniel Kahneman, “Judgment under uncertainty: heuristics
+and biases”, <em>Science</em> (1974).</li>
 <li>Neal Cohen and Larry Squire, “Preserved learning and retention of
 pattern-analyzing skill in amnesia”, <em>Science</em> (1980).</li>
 <li>Daniel Schacter, Joan Harbluk and Donald McLachlan, “Retrieval without
@@ -860,8 +1003,13 @@ Learning and Verbal Behavior</em> (1984).</li>
 <em>JEP: Learning, Memory, and Cognition</em> (1990).</li>
 <li>Marcia Johnson, Shahin Hashtroudi and D. Stephen Lindsay, “Source
 monitoring”, <em>Psychological Bulletin</em> (1993).</li>
+<li>James McClelland, Bruce McNaughton and Randall O’Reilly, “Why there are
+complementary learning systems in the hippocampus and neocortex”,
+<em>Psychological Review</em> (1995).</li>
 <li>Peter Gollwitzer, “Implementation intentions: strong effects of simple
 plans”, <em>American Psychologist</em> (1999).</li>
+<li>Gerd Gigerenzer, Peter Todd and the ABC Research Group, <em>Simple Heuristics
+That Make Us Smart</em> (1999).</li>
 <li>Wendy Wood and David Neal, “A new look at habits and the habit–goal
 interface”, <em>Psychological Review</em> (2007).</li>
 <li>Kentaro Fujita, Yaacov Trope, Nira Liberman and Maya Levin-Sagi, “Construal
@@ -888,6 +1036,10 @@ Time, Division I</em> (1991).</li>
 <ul class="refs">
 <li>Anand Rao and Michael Georgeff, “Modeling rational agents within a
 BDI-architecture”, <em>KR</em> (1991).</li>
+<li>Joon Sung Park et al., “Generative agents: interactive simulacra of human
+behavior”, <em>UIST</em> (2023).</li>
+<li>Noah Shinn et al., “Reflexion: language agents with verbal reinforcement
+learning”, <em>NeurIPS</em> (2023).</li>
 <li>Di Wu et al., “LongMemEval: benchmarking chat assistants on long-term
 interactive memory” (2024).</li>
 </ul>

@@ -49,8 +49,9 @@ not change when a heading is reworded. Add new ones; don't rename these.
 | `gaps` | 8. The gaps |
 | `episodic` | Episodic memory |
 | `procedural` | Procedural memory |
-| `measuring` | 9. Measuring it |
-| `open-questions` | 10. Open questions |
+| `episode-to-habit` | 9. From episode to habit |
+| `measuring` | 10. Measuring it |
+| `open-questions` | 11. Open questions |
 | `references` | References |
 
 ## Deployment
