@@ -229,9 +229,9 @@ provenance when other memory systems don’t.</p>
 kind is externalised for a different reason, changes in a different way, and
 needs the person’s attention again for a different reason. particulars holds
 semantic memory: what is believed about things in the world. intentions holds
-prospective memory: what a person means to do, and why. Episodic and
-procedural memory are not yet specified. The paper ends with what episodic
-memory would need, and argues that for people procedural memory needs less a
+prospective memory: what a person means to do, and why. A third format,
+episodes, is drafted for episodic memory: what happened. Procedural memory
+is not specified. The paper ends with what episodic memory needs, and argues that for people procedural memory needs less a
 format than a way back to the reasons behind their habits.</p>
 </section>
 
@@ -632,8 +632,10 @@ through</em> references a DKF claim the person holds about themselves. That clai
 is held because DKF records what they did. People infer who they are from
 what they observe themselves doing (Bem 1972), so a self-understanding that
 cites evidence is one the person can believe, and one that cites none is a
-hope. This is where a record of episodes would make the loop work, and it is
-the strongest argument for the gap in the next section.</p>
+hope. This is where a record of episodes makes the loop work, and it is the
+strongest argument for filling the gap in the next section. In the episodes
+draft, an episode can name the intention it was the occasion of, and a claim
+citing the episode is the evidence the self-understanding cites.</p>
 <p><strong>Reflection.</strong> One kind of breakdown never announces itself: a habit that
 has outlived its reason carries on smoothly, and nothing in use shows it.
 So a harness can’t only wait for breakdowns. It has to give the person
@@ -696,12 +698,28 @@ needed, has nothing to work on. Kierkegaard put the asymmetry in a line:
 “Life can only be understood backwards; but it must be lived forwards”
 (<em>Journals</em>, 1843, tr. Dru). intentions holds the forwards. Without
 episodes, nothing holds the backwards.</p>
+<p>A draft format,
+<a href="https://github.com/nodelogicau/episodes">episodes</a>, now takes up
+the gap, and settles whether it is a third format or a DKF extension. It is
+a third format, for the reason the kinds are separated at all: an episode
+needs no dialectic and must never be revised, and a DKF object exists to be
+revised. That claims would cite episodes constantly argues only for a clean
+reference, and DKF already has one: <code>source.document.ref</code> may name
+something its reader can’t fetch, and an episode id is such a thing. An
+episode records and never interprets. Every judgement about it, including
+whether it went well, is a claim that cites it.</p>
+<p>The draft adds two things this section had not asked for. Every episode
+has a <em>standpoint</em>, the person whose act or utterance it records,
+because a claim taken from a conversation has to tell what the person said
+from what the assistant suggested, and nothing downstream can recover that
+(Johnson, Hashtroudi and Lindsay 1993). And most episodes are traces, not
+copies: an email or a calendar event already has a home, so the episode
+holds a pointer and a hash, and holds text only when nothing else does, as
+with a conversation.</p>
 <aside class="draft-note">
 <p class="label">Draft note</p>
-<p>Is this a third format or a DKF extension? Episodes need no
-dialectic, which points to a separate format. They take particulars as
-subjects and would be cited by claims constantly, which points to an
-extension.</p>
+<p>episodes is an early draft and nothing in it is declared. Check
+this section against its README when it reaches <code>episodes/0.1</code>.</p>
 </aside>
 <h3 id="procedural">Procedural memory</h3>
 <p>Procedural memory doesn’t fit the argument of <a href="#why-forget">section 1</a> the way the others
@@ -761,15 +779,15 @@ the one before.</p>
   <svg class="min640" viewBox="0 0 860 270" role="img" aria-labelledby="fig2-title fig2-desc">
     <title id="fig2-title">From episode to habit, and the way back</title>
     <desc id="fig2-desc">Four steps from left to right. An episode, what
-      happened, is episodic memory and not yet specified. It is induced into a
+      happened, is episodic memory, held by the episodes draft. It is induced into a
       rule of thumb, an inferred claim in particulars. The rule is adopted as a
       routine, a recurring intention in intentions. The routine is practised
       until it is a habit, the same recurring intention marked as habit. The
       person moves forward and stops holding each step. Beneath, the way back
       runs right to left: the habit is still its recurring intention, the
       intention points at the rule through an informal reference, and the
-      rule cites claims about its episodes through its basis. The episodes
-      themselves have no format yet.</desc>
+      rule cites claims about its episodes through its basis. Those claims
+      cite the episodes themselves, whose format is still a draft.</desc>
     <defs>
       <marker id="f2-head" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
         <path d="M0,0 L8,4 L0,8 z" class="head"/>
@@ -817,7 +835,8 @@ the one before.</p>
   </div>
   <figcaption>Figure 2. Each step lets the person stop holding the one before.
     The way back is a chain of citations. Its last link reaches claims about
-    what happened; the episodes themselves have no format yet.</figcaption>
+    what happened, which cite the episodes themselves; their format is still a
+    draft.</figcaption>
 </figure>
 <p><strong>Episodes become rules of thumb.</strong> Over time, memory folds repeated
 episodes into general knowledge that no longer recalls its instances
@@ -864,11 +883,11 @@ coupling of <a href="#how-they-meet">section 7</a>. A rule of thumb names its in
 because a synthesis becomes the current belief about its subject and a rule
 of thumb is one belief among several
 (<a href="https://github.com/nodelogicau/particulars#what-an-inference-rests-on">particulars, <em>What an inference rests on</em></a>).
-A basis cites claims, not episodes. Until there is an episodic format, the
-claims about what happened are where the chain ends, and each of those
-cites whatever recorded the episode as its document. The chain can be walked
-from a habit down to what was observed, and stops short only of the
-record.</p>
+A basis cites claims, not episodes. Each claim about what happened cites
+the record of it as its document, and under the episodes draft that record
+is an episode: the claim’s <code>source.document.ref</code> names it, and its
+quote carries the words relied on. The chain can be walked from a habit down
+to what was observed, and on to the record itself.</p>
 <p><strong>Its breakdown.</strong> A rule of thumb induced from too few episodes, or
 carried past the conditions it was learned in, fails the way a habit
 outlives its reason, and it is as invisible from the inside. The chain makes
@@ -914,7 +933,7 @@ are episodic: what was said, and when.</p>
 <tr><td>Abstention</td><td>Semantic</td><td>Knowing what isn’t known</td></tr>
 <tr><td>Information extraction</td><td>Episodic, via ingestion</td><td>Whether ingestion captured it as a claim</td></tr>
 <tr><td>Multi-session reasoning</td><td>Episodic and semantic</td><td>Synthesis across sources</td></tr>
-<tr><td>Temporal reasoning</td><td>Episodic</td><td>Mostly out of scope until an episodic format exists</td></tr>
+<tr><td>Temporal reasoning</td><td>Episodic</td><td>Mostly out of scope; it belongs to episodes</td></tr>
 </tbody>
 </table>
 </div>
@@ -937,10 +956,10 @@ stratification and current results before publishing.</p>
 <section id="open-questions">
 <h2>11. Open questions</h2>
 <ul>
-<li><strong>Should the provenance spine be its own specification?</strong> intentions copies
-DKF’s id and author shape by agreement. A shared spec would make the family
-explicit, but is itself a form of coupling.</li>
-<li><strong>Is episodic memory a third format or a DKF extension?</strong> See <a href="#gaps">section 8</a>.</li>
+<li><strong>Should the provenance spine be its own specification?</strong> intentions and the
+episodes draft copy DKF’s id and author shape by agreement, and a third
+format sharpens the question. A shared spec would make the family explicit,
+but is itself a form of coupling.</li>
 <li><strong>Does the human purpose belong in the specifications?</strong> Each
 specification’s <em>Purpose</em> is about the format. Helping a person act with
 purpose may belong only here and on the landing pages, so the specs stay
@@ -1050,7 +1069,8 @@ interactive memory” (2024).</li>
 <p class="formats"><a href="https://github.com/nodelogicau/particulars">particulars</a> ·
 <a href="https://github.com/nodelogicau/particulars-bench">particulars-bench</a> ·
 <a href="https://github.com/nodelogicau/intentions">intentions</a> ·
-<a href="https://github.com/nodelogicau/intentions-bench">intentions-bench</a></p>
+<a href="https://github.com/nodelogicau/intentions-bench">intentions-bench</a> ·
+<a href="https://github.com/nodelogicau/episodes">episodes</a> (draft)</p>
 </section>
 
   </article>

@@ -9,8 +9,8 @@ to something kept elsewhere. `index.html` is the paper, and the only copy of
 it. `whitepaper.md` at the root is a stub pointing here; its git history holds
 the paper up to the move. Edit the prose in `index.html`.
 
-Nothing in the paper is normative. Anything it says about what particulars or
-intentions does must agree with that format's README on `main`.
+Nothing in the paper is normative. Anything it says about what particulars,
+intentions or episodes does must agree with that format's README on `main`.
 
 ## Editing
 
