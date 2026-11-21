@@ -36,15 +36,18 @@ not change when a heading is reworded. Add new ones; don't rename these.
 | `why-forget` | 1. Why forget |
 | `overthinker` | The overthinker |
 | `active-forgetting` | Active forgetting |
+| `two-forgettings` | Two kinds of forgetting |
 | `ready-to-hand` | The ready-to-hand |
 | `becoming` | Becoming who you are |
 | `what-the-store-needs` | What this asks of the store |
 | `memory` | 2. Memory, briefly |
 | `why-agents-forget` | 3. Why agents forget, and why it matters to the person |
 | `provenance` | 4. The provenance spine |
+| `keeping-reasons` | Why keep reasons at all |
 | `semantic` | 5. Semantic memory: particulars |
 | `prospective` | 6. Prospective memory: intentions |
 | `surfacing` | What surfaces with a breakdown |
+| `bad-faith` | Settled plans and bad faith |
 | `how-they-meet` | 7. How they meet |
 | `gaps` | 8. The gaps |
 | `episodic` | Episodic memory |
