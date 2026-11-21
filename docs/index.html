@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forgetting</title>
-<meta name="description" content="Forgetting — why we externalise memory, what kinds there are, and how particulars and intentions fit together. The reasoning behind both formats.">
+<meta name="description" content="Forgetting — why we externalise memory, what kinds there are, and how particulars, intentions and episodes fit together. The reasoning behind the formats.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23555555' stroke-width='4'/%3E%3Cpath d='M13 9 L20 16 L13 23' fill='none' stroke='%23555555' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <!--
   This file is the whitepaper. There is no other copy: whitepaper.md is a
@@ -16,8 +16,8 @@
   ids are a public interface for deep links; they are listed in
   docs/README.md and do not change when a heading is reworded.
 
-  Nothing here is normative. Anything the paper says about what particulars
-  or intentions does must agree with that format's README on main.
+  Nothing here is normative. Anything the paper says about what particulars,
+  intentions or episodes does must agree with that format's README on main.
 -->
 <style>
   :root {
@@ -129,7 +129,7 @@
     <p class="series">Forgetting</p>
     <h1>Remember forward.</h1>
     <p class="subtitle">Why we externalise memory, what kinds there are, and how
-      particulars and intentions fit together</p>
+      particulars, intentions and episodes fit together</p>
 
     <blockquote class="epigraph">
       <p>&ldquo;It&rsquo;s a poor sort of memory that only works backwards.&rdquo;</p>
@@ -140,22 +140,25 @@
       <a href="https://github.com/nodelogicau/particulars/issues/35">particulars#35</a>.
       Sections marked <em>Draft note</em> are where the argument is still thin or a
       decision is open. Nothing here is normative: the specifications are
-      particulars (<a href="https://particulars.fyi">particulars.fyi</a>) and
-      intentions (<a href="https://intentions.fyi">intentions.fyi</a>).</p>
+      particulars (<a href="https://particulars.fyi">particulars.fyi</a>),
+      intentions (<a href="https://intentions.fyi">intentions.fyi</a>) and
+      episodes (<a href="https://episodes.fyi">episodes.fyi</a>), which is
+      itself still a draft.</p>
 
     <figure>
       <div class="diagram-wrap">
       <svg class="min640" viewBox="0 0 820 250" role="img" aria-labelledby="fig-title fig-desc">
         <title id="fig-title">Four kinds of memory over one spine</title>
-        <desc id="fig-desc">Four kinds of memory. Semantic memory, what is
-          believed, is held by particulars. Prospective memory, what a person
-          means to do, is held by intentions. Episodic memory, what actually
-          happened, is not yet specified. Procedural memory, skills and habits,
-          needs less a format than a way back to the reasons behind them. Beneath
-          all four runs provenance: every object says who wrote it.</desc>
-        <text x="207" y="28" text-anchor="middle" class="lbl">the formats</text>
-        <text x="612" y="28" text-anchor="middle" class="lbl">the gaps</text>
-        <line x1="410" y1="18" x2="410" y2="150" class="divider"/>
+        <desc id="fig-desc">Four kinds of memory. Three are held by formats.
+          Semantic memory, what is believed, is held by particulars. Prospective
+          memory, what a person means to do, is held by intentions. Episodic
+          memory, what actually happened, is held by episodes, which is still a
+          draft. One is the gap: procedural memory, skills and habits, needs
+          less a format than a way back to the reasons behind them. Beneath all
+          four runs provenance: every object says who wrote it.</desc>
+        <text x="305" y="28" text-anchor="middle" class="lbl">the formats</text>
+        <text x="710" y="28" text-anchor="middle" class="lbl">the gap</text>
+        <line x1="605" y1="18" x2="605" y2="150" class="divider"/>
 
         <rect x="20" y="46" width="180" height="94" rx="4" class="box"/>
         <text x="110" y="72" text-anchor="middle" class="lbl">semantic</text>
@@ -167,10 +170,11 @@
         <a href="https://intentions.fyi"><text x="305" y="98" text-anchor="middle" font-weight="600">intentions</text></a>
         <text x="305" y="122" text-anchor="middle" class="small">what a person means to do</text>
 
-        <rect x="425" y="46" width="180" height="94" rx="4" class="box-gap"/>
-        <text x="515" y="72" text-anchor="middle" class="lbl">episodic</text>
-        <text x="515" y="98" text-anchor="middle" font-weight="600">not yet specified</text>
-        <text x="515" y="122" text-anchor="middle" class="small">what actually happened</text>
+        <rect x="410" y="46" width="180" height="94" rx="4" class="box"/>
+        <text x="580" y="64" text-anchor="end" class="lbl">draft</text>
+        <text x="500" y="72" text-anchor="middle" class="lbl">episodic</text>
+        <a href="https://episodes.fyi"><text x="500" y="98" text-anchor="middle" font-weight="600">episodes</text></a>
+        <text x="500" y="122" text-anchor="middle" class="small">what actually happened</text>
 
         <rect x="620" y="46" width="180" height="94" rx="4" class="box-gap"/>
         <text x="710" y="72" text-anchor="middle" class="lbl">procedural</text>
@@ -179,15 +183,15 @@
 
         <line x1="110" y1="140" x2="110" y2="180" class="edge"/>
         <line x1="305" y1="140" x2="305" y2="180" class="edge"/>
-        <line x1="515" y1="140" x2="515" y2="180" class="edge edge-dash"/>
+        <line x1="500" y1="140" x2="500" y2="180" class="edge"/>
         <line x1="710" y1="140" x2="710" y2="180" class="edge edge-dash"/>
         <rect x="20" y="180" width="780" height="50" rx="4" class="box"/>
         <text x="410" y="203" text-anchor="middle" font-weight="600">provenance</text>
         <text x="410" y="221" text-anchor="middle" class="small">every object says who wrote it</text>
       </svg>
       </div>
-      <figcaption>Figure 1. Several kinds of memory, not one store. Two are
-        specified; two are the gaps.</figcaption>
+      <figcaption>Figure 1. Several kinds of memory, not one store. Three have
+        formats, one of them still a draft; one is the gap.</figcaption>
     </figure>
   </header>
 
@@ -230,9 +234,9 @@ kind is externalised for a different reason, changes in a different way, and
 needs the person’s attention again for a different reason. particulars holds
 semantic memory: what is believed about things in the world. intentions holds
 prospective memory: what a person means to do, and why. A third format,
-episodes, is drafted for episodic memory: what happened. Procedural memory
-is not specified. The paper ends with what episodic memory needs, and argues that for people procedural memory needs less a
-format than a way back to the reasons behind their habits.</p>
+episodes, holds episodic memory: what happened. It is still a draft.
+Procedural memory has no format, and the paper argues that for people it
+needs less a format than a way back to the reasons behind their habits.</p>
 </section>
 
 <section id="why-forget">
@@ -634,8 +638,10 @@ what they observe themselves doing (Bem 1972), so a self-understanding that
 cites evidence is one the person can believe, and one that cites none is a
 hope. This is where a record of episodes makes the loop work, and it is the
 strongest argument for filling the gap in the next section. In the episodes
-draft, an episode can name the intention it was the occasion of, and a claim
-citing the episode is the evidence the self-understanding cites.</p>
+draft, an episode names no intention, and intentions cites no episode. The
+link between them is a judgement about the episode, so it is a claim that
+cites both: the episode as its evidence, the intention as what it bears on.
+That claim is the evidence the self-understanding cites.</p>
 <p><strong>Reflection.</strong> One kind of breakdown never announces itself: a habit that
 has outlived its reason carries on smoothly, and nothing in use shows it.
 So a harness can’t only wait for breakdowns. It has to give the person
@@ -712,7 +718,8 @@ something its reader can’t fetch, and an episode id is such a thing. An
 episode records and never interprets. Every judgement about it, including
 whether it went well, is a claim that cites it.</p>
 <p>The draft adds two things this section had not asked for. Every episode
-has a <em>standpoint</em>, the person whose act or utterance it records,
+has a <em>standpoint</em>, whoever’s act or utterance it records, the
+assistant’s included,
 because a claim taken from a conversation has to tell what the person said
 from what the assistant suggested, and nothing downstream can recover that
 (Johnson, Hashtroudi and Lindsay 1993). And most episodes are traces, not
@@ -1073,7 +1080,8 @@ interactive memory” (2024).</li>
 <a href="https://github.com/nodelogicau/particulars-bench">particulars-bench</a> ·
 <a href="https://github.com/nodelogicau/intentions">intentions</a> ·
 <a href="https://github.com/nodelogicau/intentions-bench">intentions-bench</a> ·
-<a href="https://github.com/nodelogicau/episodes">episodes</a> (draft)</p>
+<a href="https://github.com/nodelogicau/episodes">episodes</a> (draft;
+<a href="https://episodes.fyi">episodes.fyi</a>)</p>
 </section>
 
   </article>
@@ -1083,8 +1091,9 @@ interactive memory” (2024).</li>
 <footer>
   <div class="wrap">
     <p>Forgetting is a whitepaper from <a href="https://github.com/nodelogicau">Node Logic</a>
-      on the reasoning behind <a href="https://particulars.fyi">particulars</a> and
-      <a href="https://intentions.fyi">intentions</a>. It is released under CC0 1.0
+      on the reasoning behind <a href="https://particulars.fyi">particulars</a>,
+      <a href="https://intentions.fyi">intentions</a> and
+      <a href="https://episodes.fyi">episodes</a>. It is released under CC0 1.0
       Universal. <a href="https://github.com/nodelogicau/forgetting">Source on GitHub</a>.</p>
   </div>
 </footer>
