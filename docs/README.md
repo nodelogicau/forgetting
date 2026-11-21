@@ -4,10 +4,10 @@ The Forgetting whitepaper: one hand-written HTML file, no build step, no
 JavaScript, no external requests. Served by GitHub Pages from this `docs/`
 directory on `main`, with the custom domain in `CNAME`.
 
-Unlike particulars.fyi and intentions.fyi, this page is not an introduction
-to something kept elsewhere. `index.html` is the paper, and the only copy of
-it. `whitepaper.md` at the root is a stub pointing here; its git history holds
-the paper up to the move. Edit the prose in `index.html`.
+Unlike particulars.fyi, intentions.fyi and episodes.fyi, this page is not an
+introduction to something kept elsewhere. `index.html` is the paper, and the
+only copy of it. `whitepaper.md` at the root is a stub pointing here; its git
+history holds the paper up to the move. Edit the prose in `index.html`.
 
 Nothing in the paper is normative. Anything it says about what particulars,
 intentions or episodes does must agree with that format's README on `main`.
